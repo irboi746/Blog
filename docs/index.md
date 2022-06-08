@@ -3,4 +3,3 @@
 
 ## `whoami`
 - I am irboi746, an IT enthusiast with focus in Cyber Security
-
