@@ -1,5 +1,5 @@
 # Publish your Obsidian Notes
-Credits : [jobingj](https://github.com/jobindj/obsidian-publish-mkdocs)
+Credits : [jobindgj](https://github.com/jobindj/obsidian-publish-mkdocs)
 
 (MkDocs template)
 
