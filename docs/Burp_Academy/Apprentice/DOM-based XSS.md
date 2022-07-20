@@ -1,7 +1,6 @@
 # DOM based XSS
 ## What is DOM?
 - Based on this [link](https://www.w3schools.com/js/js_htmldom.asp) and this [portswigger link](https://portswigger.net/web-security/dom-based) will explain what HTML sink is.
-
 ## DOM XSS in `document.write` sink using source `location.search`
 ### Enumeration
 Step 1: Randomly type a string to get a search result
@@ -68,23 +67,26 @@ javascript:alert(document.cookie)
 ![[Pasted image 20220719231913.png]]
 
 ## DOM XSS in jQuery selector sink using a hashchange event
-The URL hash is everything that follows the pound sign (#) in the URL. The `hashchange` event activates when the URL hash changes from one to another. 
+- The URL hash is everything that follows the pound sign (#) in the URL. The `hashchange` event activates when the URL hash changes from one to another. 
 
 >Example of `hashchange`: 
->From `url.com/#header` to `url.com/#footer`
+>From:  `url.com/#header` To: `url.com/#footer`
 >
 
- This lab contains a DOM-based cross-site scripting vulnerability on the home page. It uses jQuery's `$()` selector function to auto-scroll to a given post, whose title is passed via the `location.hash` property.
+ - This lab contains a DOM-based cross-site scripting vulnerability on the home page. It uses jQuery's `$()` selector function to auto-scroll to a given post, whose title is passed via the `location.hash` property.
 
-To solve the lab, deliver an exploit to the victim that calls the `print()` function in their browser. 
+- To solve the lab, deliver an exploit to the victim that calls the `print()` function in their browser. 
 
 ### Enumeration
 ![[Pasted image 20220720003905.png]]
-- From the inspect page source, we can see the vulnerable jQuery function.
-![[Pasted image 20220720003825.png]]
-- We can see that when there is a `hashchange`, it will call a `function()` which will check if the hash component contains values the are part of the  `<h2>` heading in the list below. If it exists, it will scroll to the post.
-![[Pasted image 20220720144523.png]]
 
+- From the inspect page source, we can see the vulnerable jQuery function.
+
+![[Pasted image 20220720003825.png]]
+
+- We can see that when there is a `hashchange`, it will call a `function()` which will check if the hash component contains values the are part of the  `<h2>` heading in the list below. If it exists, it will scroll to the post.
+
+![[Pasted image 20220720144523.png]]
 ### Vulnerability Assessment
 - To exploit this, we can intercept the response and modify this function to trigger something when there is a `hashchange`.
 ![[Pasted image 20220720145512.png]]
