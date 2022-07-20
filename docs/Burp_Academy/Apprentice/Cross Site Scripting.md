@@ -44,13 +44,59 @@
 ![[Pasted image 20220624121514.png]]
 - As this is stored XSS, as long as the comment is there, any user that visits the page will receive the pop-up.
 
-## DOM XSS in `document.write` sink using source `location.search`
-### Enumeration
-### Vulnerability Assessment
-### Exploitation
 
-
-## aaa
+## Reflected XSS into attribute with angle brackets HTML-encoded
 ### Enumeration
+![[Pasted image 20220720162800.png]]
+![[Pasted image 20220720162746.png]]
 ### Vulnerability Assessment
-### Exploitation
+- From the above enumeration, we can see that there is some input sanitization where `<>` are changed to `&lt;` and `&gt;` respectively. Hence adding angle brackets will not work.
+- We do notice however, that adding `""` appropirately can trigger the javascript behind the form.
+![[Pasted image 20220720174319.png]]
+- Hence our payload :
+```html
+"onclick="alert(1)
+```
+- We can use the event attributes [here](https://www.w3schools.com/tags/ref_eventattributes.asp) and trigger the XSS as per the attribute  used.
+![[Pasted image 20220720165418.png]]
+
+## Stored XSS into anchor href attribute with double quotes HTML-encoded
+- This lab contains a stored cross-site scripting vulnerability in the comment functionality. 
+- To solve this lab, submit a comment that calls the alert function when the comment author name is clicked. 
+### Enumeration
+- There is some form of input sanitization.
+
+![[Pasted image 20220720175207.png]]
+![[Pasted image 20220720175351.png]]
+- We see that the author's name linked with a `href` link which is the website field. 
+![[Pasted image 20220720212834.png]]
+### Vulnerability Assessment
+- Inserting `<script>alert()</script>` to the website field does ot seem to wrk
+![[Pasted image 20220720213105.png]]
+- With reference to this [link](https://security.stackexchange.com/questions/11985/will-javascript-be-executed-which-is-in-an-href) we can try `javascript:alert(1)`
+ ![[Pasted image 20220720213255.png]]
+- And the javascript is executed.
+
+## Reflected XSS into a JavaScript string with angle brackets HTML encoded
+- This lab contains a reflected cross-site scripting vulnerability in the search query tracking functionality where angle brackets are encoded. 
+- The reflection occurs inside a JavaScript string. 
+- To solve this lab, perform a cross-site scripting attack that breaks out of the JavaScript string and calls the alert function. 
+### Enumeration
+- Went to the search box and typed 'aaaa'
+![[Pasted image 20220720214322.png]]
+- Inspect source and realised that there is a `<script></script>` section where input 'aaaa' is also present. Hence we need to manipulate this input and have `document.write` execute the manipulated input.
+![[Pasted image 20220720214259.png]]
+
+### Vulnerability Assessment
+- Payload used : 
+```html
+';<img src=1 onerror=alert()>'
+```
+- But the result is encoded hence reflected XSS will not work.
+![[Pasted image 20220720215209.png]]
+- We use another payload 
+```html
+'-alert()-'
+```
+- As we can see below, `alert()` is triggered.
+![[Pasted image 20220720222417.png]]
