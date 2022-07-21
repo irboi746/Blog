@@ -51,7 +51,7 @@
 ![[Pasted image 20220720162746.png]]
 ### Vulnerability Assessment
 - From the above enumeration, we can see that there is some input sanitization where `<>` are changed to `&lt;` and `&gt;` respectively. Hence adding angle brackets will not work.
-- We do notice however, that adding `""` appropirately can trigger the javascript behind the form.
+- We do notice however, that adding `""` appropriately can trigger the javascript behind the form.
 ![[Pasted image 20220720174319.png]]
 - Hence our payload :
 ```html
@@ -71,7 +71,7 @@
 - We see that the author's name linked with a `href` link which is the website field. 
 ![[Pasted image 20220720212834.png]]
 ### Vulnerability Assessment
-- Inserting `<script>alert()</script>` to the website field does ot seem to wrk
+- Inserting `<script>alert()</script>` to the website field does ot seem to work
 ![[Pasted image 20220720213105.png]]
 - With reference to this [link](https://security.stackexchange.com/questions/11985/will-javascript-be-executed-which-is-in-an-href) we can try `javascript:alert(1)`
  ![[Pasted image 20220720213255.png]]
