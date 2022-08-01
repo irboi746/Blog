@@ -3,7 +3,6 @@
  - This lab contains an OS command injection vulnerability in the product stock checker.
  - The application executes a shell command containing user-supplied product and store IDs, and returns the raw output from the command in its response.
  - To solve the lab, execute the whoami command to determine the name of the current user. 
-
 ### Enumeration
 - We visit the website and randomly visit a product page to see where the vulnerable function is.
 ![[Pasted image 20220726230343.png]]
@@ -34,7 +33,6 @@
 ![[Pasted image 20220726225535.png]]
 - We viewed the page source and realised that the image is querying the webserver for a file `6.jpg`. 
 ![[Pasted image 20220726225449.png]]
-
 ### Vulnerability Assessment / Exploitation
 - We try to query the file directly by using the "Open Image in New Tab"
 ![[Pasted image 20220726225604.png]]
@@ -49,7 +47,6 @@
 -  This online shop has a live chat feature implemented using WebSockets. Chat messages that you submit are viewed by a support agent in real time.
 - To solve the lab, use a WebSocket message to trigger an alert() popup in the support agent's browser. 
 - Web socket exploitation is further mentioned [here](https://portswigger.net/web-security/websockets)
-
 ### Enumeration
 - We access the lab website and on the top right hand corner we see "Live chat"
 ![[Pasted image 20220801110013.png]]
@@ -74,9 +71,11 @@
 ![[Pasted image 20220801141547.png]]
 ### Vulnerability Assessment / Exploitation
 - Thus a payload that we can try is as below : 
+
 ```html
 <img src=1 onerror='alert(1)'>
 ```
+
 - To bypass html encoding, we have to use burp repeater to change out the content below to our payload above.
 ![[Pasted image 20220801180818.png]]
 - After hitting the 'Send' button, we can see that `alert()` is successfully triggered.
@@ -88,7 +87,6 @@
 - This lab uses a serialization-based session mechanism and is vulnerable to privilege escalation as a result. To solve the lab, edit the serialized object in the session cookie to exploit this vulnerability and gain administrative privileges. Then, delete Carlos's account.
 - You can log in to your own account using the following credentials: `wiener:peter` 
 - Insecure deserialisation is explained [here](https://portswigger.net/web-security/deserialization) and [this](https://portswigger.net/web-security/deserialization/exploiting) explains how to test for and exploit insecure deserialisation. 
-
 ### Enumeration
 - We first visit the website and see that there is a "My account" tab. Where we find a login form.
 ![[Pasted image 20220801194343.png]]
@@ -97,12 +95,13 @@
 ![[Pasted image 20220801183053.png]]
 - We decode the string to get what looks like a PHP serialisation format. 
 ![[Pasted image 20220801183113.png]]
-
 ### Vulnerability Assessment
 - To get to the admin panel it seems like we simply need to change `b:0` to `b:1` as below and encode it in base64.
+
 ```php
 O:4:"User":2:{s:8:"username";s:6:"wiener";s:5:"admin";b:1;}7
 ```
+
 ![[Pasted image 20220801195256.png]]
 - The manipulation can be done by intercepting the GET request and modifying the cookie.
 ![[Pasted image 20220801195708.png]]
@@ -114,10 +113,9 @@ O:4:"User":2:{s:8:"username";s:6:"wiener";s:5:"admin";b:1;}7
 
 # OAuth Authentication
 ## Authentication bypass via OAuth implicit flow 
- - This lab uses an OAuth service to allow users to log in with their social media account. Flawed validation by the client application makes it possible for an attacker to log in to other users' accounts without knowing their password.
+- This lab uses an OAuth service to allow users to log in with their social media account. Flawed validation by the client application makes it possible for an attacker to log in to other users' accounts without knowing their password.
 - To solve the lab, log in to Carlos's account. His email address is `carlos@carlos-montoya.net`. You can log in with your own social media account using the following credentials: `wiener:peter`. 
 - More about OAuth can be found [here](https://portswigger.net/web-security/oauth) and [this](https://portswigger.net/web-security/oauth/grant-types) will explain more about OAuth grant types. Information on OAuth implicit flow can be found [here](https://oauth.net/2/grant-types/implicit/#:~:text=The%20Implicit%20flow%20was%20a,extra%20authorization%20code%20exchange%20step.).
-
 ### Enumeration
 - We first visit the website and we find a "My account" tab which leads to a "social media" sign in redirect.
 ![[Pasted image 20220801213247.png]]
