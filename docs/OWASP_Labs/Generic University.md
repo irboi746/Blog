@@ -1,7 +1,7 @@
 # Generic University
-[Generic University](https://github.com/InsiderPhD/Generic-University) is a "Under Construction" vulnerable web application for student of generic university to see their grades online. This project can be found under [OWASP Vulnerable Web Applications DIrectory](https://owasp.org/www-project-vulnerable-web-applications-directory/). It contains some of the vulnerabilities found in [OWASP API Top 10 2019](https://github.com/InsiderPhD/Generic-University#vulnerabilities) and with very clear [[#Goals|goals]].
+[Generic University](https://github.com/InsiderPhD/Generic-University) is a "Under Construction" vulnerable web application for student of generic university to see their grades online. This project can be found under [OWASP Vulnerable Web Applications DIrectory](https://owasp.org/www-project-vulnerable-web-applications-directory/). It contains some of the vulnerabilities found in [OWASP API Top 10 2019](https://github.com/InsiderPhD/Generic-University#vulnerabilities) and with very clear [[#Author's Goals|goals]].
 
-My Personal Objective in this undertaking would be to go through my [[0. Web Pentest Workflow#General Workflow|workflow]] to refine the enumeration steps. The enumeration done here will be focused on Application Profiling. Next objective will be to find all the vulnerabilities that is in the author's goals. A good reference would be the docker image creator -  busk3r's own [writeup](https://infosecwriteups.com/hacking-graphql-for-fun-and-profit-part-2-methodology-and-examples-5992093bcc24). 
+My Personal Objective in this undertaking would be to go through my workflow to refine the enumeration steps. The enumeration done here will be focused on Application Profiling. Next objective will be to find all the vulnerabilities that is in the author's goals. A good reference would be the docker image creator -  busk3r's own [writeup](https://infosecwriteups.com/hacking-graphql-for-fun-and-profit-part-2-methodology-and-examples-5992093bcc24). 
 
 ## Author's Goals
 |S/N|Goals|Answer|
@@ -77,8 +77,8 @@ My Personal Objective in this undertaking would be to go through my [[0. Web Pen
 ![[Pasted image 20220818115501.png]]
 
 ##### Exploring with a Registered Account
-- With registered account we continue out enumeration. When we enumerated the [[#Using a API Specific Wordlist https github com chrislockard api_wordlist blob master objects txt|API endpoints]] below we noticed that /api/user and /api/admin is redirected to login page. Hence we will attempt to find out more about the API endpoints with this registered account. 
-- As can be seen below, /api/admin gave us the admin API endpoints.
+- With registered account we continue out enumeration. When we enumerated the [[#Using a API Specific Wordlist https github com chrislockard api_wordlist blob master objects txt|API endpoints]] below we noticed that `/api/user` and `/api/admin `is redirected to login page. Hence we will attempt to find out more about the API endpoints with this registered account. 
+- As can be seen below, `/api/admin` gave us the admin API endpoints.
 
 ![[Pasted image 20220818121137.png]]
 
@@ -255,6 +255,7 @@ query {
 ##### Edit Someone's Grades
 ![[Pasted image 20220822165002.png]]
 ![[Pasted image 20220822165512.png]]
+
 - When we query the class grades with [[#Find Everyone's Grades]] we notice that there is this student that is in `uni_class_id:2`, with `grade id: 22` and `user_id:5` with a low grade of 18. 
 - We also found a mutation query which takes in the following parameters.
 
