@@ -65,11 +65,26 @@ npm run start
 
 ### Node Modules
 - Something like libraries in other programming languages.
-- 3 types of modules include : Core Mods, 3rd Party Mods installed or Custome Mods
-- As Node uses CommonJS, ES6 method of declaring modules is not applicable.
+- 3 types of modules include : Core Mods, 3rd Party Mods installed or Custom Mods
+- Node uses CommonJS, ~~only ES6 method of declaring modules is not applicable.~~ (As of current version of node ES6 method of module declaration is possible. However, we will face with [[#set type module in the package json error]]. 
 ```bash
 # how to declare
 const module = require('path_to_module')
+```
+
+#### set "type": "module" in the package.json error
+- To resolve this error we simply need to add `"type":"module"` into `package.json` as the error states an example of where to add it can be seen below.
+
+```json
+{
+  "name": "learning_ES6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  **"type":"module"**,
+  "author": "tinydev",
+  "license": "ISC",
+}
 ```
 
 ## Sample Project
@@ -111,7 +126,4 @@ nodemon <js_file>
 #### Dev Mod : 
 - [nodemon](https://www.npmjs.com/package/nodemon) : a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 
-###  Sample Project Code
-```
-Sample (WIP)
-```
+
