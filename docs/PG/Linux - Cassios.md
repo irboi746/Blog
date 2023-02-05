@@ -1,7 +1,6 @@
 # Cassios 
 
->OffSec Difficulty : Intermediate
->Community Difficulty : Very Hard
+>OffSec Difficulty : Intermediate | Community Difficulty : Very Hard | Personal Rating : Intermediate
 
 If you pay close attention to detail, you will be done before lunch. Otherwise, you will also be done before lunch... next week. 
 
