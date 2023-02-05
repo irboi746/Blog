@@ -136,6 +136,7 @@ From the results below we see some intersting output `/backup_migrate`
 
 When we visited we are given a directory listing seen below:
 ![[Pasted image 20230205161512.png]]
+
 Decompressing the recyler.tar is the source code and in this path `src/main/java/com/industrial/recycler/`, we find `WebSecurityConfig.java` file which contains username and password possibly for the webapp at port 8080.
 `recycler:DoNotMessWithTheRecycler123`.
 
@@ -212,6 +213,7 @@ The most probable result would be the one below as running a local exploit for p
 ![[Pasted image 20230205220406.png]]
 
 The pattern for the above [sudoedit](https://linux.die.net/man/8/sudoedit) permissions looks similar to the one found [here](https://www.exploit-db.com/exploits/37710). In our version to exploit, we will need to :
+
 1. create a subdirectory within the home folder and the file has to be named `recycler.ser`
 2. create a symbolic link to the a new file named `recycler.ser` in the new folder pointing to the file that requires privileged access.
 3. run `sudoedit /home/directory/recycler.ser` with super user privilege.
