@@ -43,6 +43,7 @@ Then we can just copy and paste the Hello World example and prepare to export as
 ## Misc. Issues faced
 We will face an issue like below where the burp imports are "not accessible" even when we have already configured the build path to import `burpsuite_community.jar`.
 ![[Pasted image 20231111115655.png]]
+
 Based on the following [eclipse forum](https://www.eclipse.org/forums/index.php/t/1103208/) response we simply need to delete the `module-info.java` file and the error will be gone.
 
 > Delete the module-info.java file. It's only used if you're using Java's built-in module system.
