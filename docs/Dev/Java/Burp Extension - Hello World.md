@@ -1,4 +1,6 @@
-# Hello World Burp Extension
+# Burp Extension - Hello World 
+Lao Tzu once said "A journey of a thousand miles begins with a single step" and that single step to our journey in creating a Burp extension or any development endeavour will be the "Hello World"! 
+
 In this tutorial, we will create a Hello World using the [Hello World Example](https://github.com/PortSwigger/burp-extensions-montoya-api-examples/blob/main/helloworld/src/main/java/example/helloworld/HelloWorld.java) from Portswigger.
 ## Setting Up
 We will start with environment set-up. In our set-up we will be using Eclipse as our IDE.
@@ -31,23 +33,25 @@ When package is created, we create a new Class as follows.
 
 ### Exporting
 Then we can just copy and paste the Hello World example and prepare to export as jar using the following steps:
-
+Step 1 : Select Export
 ![[Pasted image 20231111120138.png]]
-
+Step 2 : In the Export Wizard select "JAR file"
 ![[Pasted image 20231111120211.png]]
-
+Step 3 : Select Destination
 ![[Pasted image 20231111120255.png]]
-
+Step 4 : Uncheck "Export class files with compile warnings" then "finish"!
 ![[Pasted image 20231111120321.png]]
 
 ## Misc. Issues faced
-We will face an issue like below where the burp imports are "not accessible" even when we have already configured the build path to import `burpsuite_community.jar`.
+We might face an issue like below where the burp imports are "not accessible" even when we have already configured the build path to import `burpsuite_community.jar`.
 ![[Pasted image 20231111115655.png]]
 
 Based on the following [eclipse forum](https://www.eclipse.org/forums/index.php/t/1103208/) response we simply need to delete the `module-info.java` file and the error will be gone.
 
 > Delete the module-info.java file. It's only used if you're using Java's built-in module system.
 
+Alternatively, when creating a project, we can uncheck create `module-info.java`.
+![[Pasted image 20231111143737.png]]
 ## Reference
 - https://n3utr1n0.medium.com/steps-to-create-burp-extension-easily-eclipse-183ca3f3c891
 - https://bishopfox.com/blog/power-pen-tests-with-montoya-api
