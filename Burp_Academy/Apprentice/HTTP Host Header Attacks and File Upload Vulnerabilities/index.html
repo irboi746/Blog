@@ -1,0 +1,2201 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../DOM-based%20XSS/">
+      
+      
+        <link rel="next" href="../Information%20Disclosure/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>HTTP Host Header Attacks & File Upload Vulnerabilities - irboi746's space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#http-host-header-attacks-file-upload-vulnerabilities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="irboi746&#39;s space" class="md-header__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            irboi746's space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HTTP Host Header Attacks & File Upload Vulnerabilities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="irboi746&#39;s space" class="md-nav__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    irboi746's space
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Burp Academy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Burp Academy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apprentice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apprentice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Access%20Control%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business%20Logic%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Logic Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CSRF%2C%20Clickjacking%20and%20CORS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSRF, Clickjacking and CORS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cross%20Site%20Scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Site Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOM-based%20XSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM based XSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HTTP Host Header Attacks & File Upload Vulnerabilities
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    HTTP Host Header Attacks & File Upload Vulnerabilities
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#http-host-header-attacks" class="md-nav__link">
+    HTTP Host Header Attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Host Header Attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-password-reset-poisoning" class="md-nav__link">
+    Basic Password Reset Poisoning
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Password Reset Poisoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-header-authentication-bypass" class="md-nav__link">
+    Host Header Authentication Bypass
+  </a>
+  
+    <nav class="md-nav" aria-label="Host Header Authentication Bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration_1" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation_1" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-vulnerabilities" class="md-nav__link">
+    File Upload Vulnerabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="File Upload Vulnerabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rce-via-webshell-upload" class="md-nav__link">
+    RCE via Webshell Upload
+  </a>
+  
+    <nav class="md-nav" aria-label="RCE via Webshell Upload">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration_2" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation_2" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-shell-upload-via-content-type-restriction-bypass" class="md-nav__link">
+    Web shell upload via Content-Type restriction bypass
+  </a>
+  
+    <nav class="md-nav" aria-label="Web shell upload via Content-Type restriction bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration_3" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation_3" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Information%20Disclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Disclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JWT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Other%20Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Labs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL%20Injection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XXE%20and%20SSRF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XXE and SSRF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practitioner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practitioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practitioner/SQL%20Injection%20DB%20Enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection DB Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practitioner/SQL%20Injection%20UNION%20Attack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection UNION Attack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CTF/TISC%202022%20%281%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (1)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CTF/TISC%202022%20%282%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flareon22
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flareon22
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CTF/Flareon22/FlareOn_22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flareon-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev/Java/Burp%20Extension%20-%20GUI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev/Java/Burp%20Extension%20-%20Hello%20World/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev/Java/Burp%20Extension%20-%20README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension   README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev/Javascript/Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev/Javascript/Node.js_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev/Python/Web%20Automation%20Cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Automation Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Notes/File_Identification%26Classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Identification and Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Notes/Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Notes/Windows%20Obfuscation%20Techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Obfuscation Techniques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practical Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practical Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Practical_Malware_Analysis/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Practical_Malware_Analysis/Chapter%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Practical_Malware_Analysis/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OWASP Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            OWASP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OWASP_Labs/Generic%20University/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic University
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OWASP_Labs/crAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    crAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PG
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            PG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PG/Linux%20-%20Cassios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cassios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RE101
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            RE101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RE101/3.%20Simple%20Lambdas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Simple Lambdas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Random Thoughts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Random Thoughts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Random_Thoughts/010622-1824/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Pentest or... not?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Random_Thoughts/Building%20a%20Personal%20Containerized%20Web%20Pentest%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building a Personal Containerized Web Pentest Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Random_Thoughts/Password%20Management%20with%20Self-Hosted%20KeeWeb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Management with Self-Hosted KeeWeb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#http-host-header-attacks" class="md-nav__link">
+    HTTP Host Header Attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Host Header Attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-password-reset-poisoning" class="md-nav__link">
+    Basic Password Reset Poisoning
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Password Reset Poisoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-header-authentication-bypass" class="md-nav__link">
+    Host Header Authentication Bypass
+  </a>
+  
+    <nav class="md-nav" aria-label="Host Header Authentication Bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration_1" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation_1" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-vulnerabilities" class="md-nav__link">
+    File Upload Vulnerabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="File Upload Vulnerabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rce-via-webshell-upload" class="md-nav__link">
+    RCE via Webshell Upload
+  </a>
+  
+    <nav class="md-nav" aria-label="RCE via Webshell Upload">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration_2" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation_2" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-shell-upload-via-content-type-restriction-bypass" class="md-nav__link">
+    Web shell upload via Content-Type restriction bypass
+  </a>
+  
+    <nav class="md-nav" aria-label="Web shell upload via Content-Type restriction bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumeration_3" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-assessment-exploitation_3" class="md-nav__link">
+    Vulnerability Assessment / Exploitation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="http-host-header-attacks-file-upload-vulnerabilities">HTTP Host Header Attacks &amp; File Upload Vulnerabilities<a class="headerlink" href="#http-host-header-attacks-file-upload-vulnerabilities" title="Permanent link">&para;</a></h1>
+<h2 id="http-host-header-attacks">HTTP Host Header Attacks<a class="headerlink" href="#http-host-header-attacks" title="Permanent link">&para;</a></h2>
+<ul>
+<li>More on host header can be understood <a href="https://portswigger.net/web-security/host-header">here</a> and testing for host header vulnerabilities can be understood <a href="https://portswigger.net/web-security/host-header/exploiting">here</a>.</li>
+</ul>
+<h3 id="basic-password-reset-poisoning">Basic Password Reset Poisoning<a class="headerlink" href="#basic-password-reset-poisoning" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This lab is vulnerable to password reset poisoning. The user <code>carlos</code> will carelessly click on any links in emails that he receives. To solve the lab, log in to Carlos's account.</li>
+<li>You can log in to your own account using the following credentials: <code>wiener:peter</code>. Any emails sent to this account can be read via the email client on the exploit server. </li>
+</ul>
+<h4 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h4>
+<ul>
+<li>As this is a password reset challenge, we will skip the thorough mapping of the website. Below is the "Home" page.
+<img alt="Pasted image 20220806133032.png" src="../Media/Pasted%20image%2020220806133032.png" />
+<img alt="Pasted image 20220806133051.png" src="../Media/Pasted%20image%2020220806133051.png" />
+We attempted to login with the credentials given and we get to the <code>my-account</code> page below. Which does not seem to have anything special.
+<img alt="Pasted image 20220806133111.png" src="../Media/Pasted%20image%2020220806133111.png" /></li>
+<li>Next we try the "Forgot password" button which brings us to this link. We supply it with <code>wiener</code> as the user and we get the email that can be seen below.
+<img alt="Pasted image 20220806133139.png" src="../Media/Pasted%20image%2020220806133139.png" />
+<img alt="Pasted image 20220808113937.png" src="../Media/Pasted%20image%2020220808113937.png" /></li>
+<li>We notice that <code>/forgot-password</code> is a POST request and passes the username in the body. 
+<img alt="Pasted image 20220806133322.png" src="../Media/Pasted%20image%2020220806133322.png" />
+<img alt="Pasted image 20220806133205.png" src="../Media/Pasted%20image%2020220806133205.png" /></li>
+<li>As we can see from the link, a unique token is generated for each reset and it is passed in as a parameter <code>?temp-forgot-password-token=&lt;token&gt;</code> to <code>/forget-password</code> .</li>
+</ul>
+<h4 id="vulnerability-assessment-exploitation">Vulnerability Assessment / Exploitation<a class="headerlink" href="#vulnerability-assessment-exploitation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>We visited the page and intercepted the POST request of the password reset page.
+<img alt="Pasted image 20220806133247.png" src="../Media/Pasted%20image%2020220806133247.png" />
+<img alt="Pasted image 20220806133632.png" src="../Media/Pasted%20image%2020220806133632.png" /></li>
+<li>Initially, we thought that there was someting special in the cookie. But upon decoding with cyberchef, we did not see anything that is of note.
+<img alt="Pasted image 20220806133755.png" src="../Media/Pasted%20image%2020220806133755.png" /></li>
+<li>So next we will test the HTTP Host Header. Based on the above link for testing HTTP Host Header vulnerabilities, we will now add a abitrary value to the Host Header and check what happens.
+<img alt="Pasted image 20220808114300.png" src="../Media/Pasted%20image%2020220808114300.png" />
+<img alt="Pasted image 20220808114241.png" src="../Media/Pasted%20image%2020220808114241.png" /></li>
+<li>It seems like the reset email is still sent and we see that the link for password reset is <code>google.com</code> appended with the <code>/forgot-password?temp-forgot-password-token=&lt;token&gt;</code> query.</li>
+<li>The next step will be to trick user <code>carlos</code> into clicking on the reset email and steal his token.</li>
+<li>This can be done by changing the body parameter of the <code>forgot-password</code> POST request to <code>carlos</code> and Host Header to the exploit server host name, and when <code>carlos</code> clicks on the link, he will make a request to the exploit server with the token in his GET request.
+<img alt="Pasted image 20220808114742.png" src="../Media/Pasted%20image%2020220808114742.png" />
+<img alt="Pasted image 20220808114833.png" src="../Media/Pasted%20image%2020220808114833.png" /></li>
+<li>As we can see above, in the access log of the exploit server, we can see that there is a error 404 request to <code>/forgot-password</code> with the token appended.
+<img alt="Pasted image 20220808115233.png" src="../Media/Pasted%20image%2020220808115233.png" /></li>
+<li>We solve the challenge by logging into carlos with the new password <code>peter1</code>.
+<img alt="Pasted image 20220808115310.png" src="../Media/Pasted%20image%2020220808115310.png" /></li>
+</ul>
+<h3 id="host-header-authentication-bypass">Host Header Authentication Bypass<a class="headerlink" href="#host-header-authentication-bypass" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This lab makes an assumption about the privilege level of the user based on the HTTP Host header.</li>
+<li>To solve the lab, access the admin panel and delete Carlos's account. </li>
+</ul>
+<h4 id="enumeration_1">Enumeration<a class="headerlink" href="#enumeration_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>We are given a website below, but we do not have any credentials.
+<img alt="Pasted image 20220808121618.png" src="../Media/Pasted%20image%2020220808121618.png" />
+<img alt="Pasted image 20220808121710.png" src="../Media/Pasted%20image%2020220808121710.png" /></li>
+<li>It is evident that we are unable to login with the usual credentials <code>wiener:peter</code>.
+<img alt="Pasted image 20220808121749.png" src="../Media/Pasted%20image%2020220808121749.png" /></li>
+<li>Going into the details of the posts product does not give us valuable information.</li>
+<li>We attempt to see if the page has <code>robots.txt</code>. 
+<img alt="Pasted image 20220808120458.png" src="../Media/Pasted%20image%2020220808120458.png" /></li>
+<li>As can be seen above, <code>robots.txt</code> reveals that there is an admin panel which can be seen below.
+<img alt="Pasted image 20220808120535.png" src="../Media/Pasted%20image%2020220808120535.png" /></li>
+</ul>
+<h4 id="vulnerability-assessment-exploitation_1">Vulnerability Assessment / Exploitation<a class="headerlink" href="#vulnerability-assessment-exploitation_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The clue given by the error message above is that the interface is only available for local users.</li>
+<li>The original GET request is as such.
+<img alt="Pasted image 20220808122231.png" src="../Media/Pasted%20image%2020220808122231.png" /></li>
+<li>Hence we used Burp Repeater and modified the Host Header to <code>localhost</code>.
+<img alt="Pasted image 20220808121542.png" src="../Media/Pasted%20image%2020220808121542.png" /></li>
+<li>As can be seen below, we succesfully logged into the adminsitrator panel.
+<img alt="Pasted image 20220808121551.png" src="../Media/Pasted%20image%2020220808121551.png" /></li>
+<li>We can proceed to delete <code>carlos</code> to solve the challenge.
+<img alt="Pasted image 20220808122525.png" src="../Media/Pasted%20image%2020220808122525.png" /></li>
+</ul>
+<h2 id="file-upload-vulnerabilities">File Upload Vulnerabilities<a class="headerlink" href="#file-upload-vulnerabilities" title="Permanent link">&para;</a></h2>
+<h3 id="rce-via-webshell-upload">RCE via Webshell Upload<a class="headerlink" href="#rce-via-webshell-upload" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This lab contains a vulnerable image upload function. It doesn't perform any validation on the files users upload before storing them on the server's filesystem.</li>
+<li>To solve the lab, upload a basic PHP web shell and use it to exfiltrate the contents of the file <code>/home/carlos/secret</code>. Submit this secret using the button provided in the lab banner.</li>
+<li>You can log in to your own account using the following credentials: <code>wiener:peter</code>. </li>
+</ul>
+<h4 id="enumeration_2">Enumeration<a class="headerlink" href="#enumeration_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>First we will need to do some webserver enumeration. Using wappalyzer we find out that PHP is used and the webserver running is Apache on a Linux distribution Ubuntu. 
+<img alt="Pasted image 20220808142008.png" src="../Media/Pasted%20image%2020220808142008.png" /></li>
+<li>Next we login with the credentials given and we are greeted with a page that allows us to upload an image for our avatar.
+<img alt="Pasted image 20220808140837.png" src="../Media/Pasted%20image%2020220808140837.png" /></li>
+<li>We check if there is any restriction to content by uploading a <code>test.txt</code>file.
+<img alt="Pasted image 20220808140957.png" src="../Media/Pasted%20image%2020220808140957.png" /></li>
+<li>The file was sucessfully uploaded and it seems like the server is executing the file.
+<img alt="Pasted image 20220808141017.png" src="../Media/Pasted%20image%2020220808141017.png" />
+<img alt="Pasted image 20220808141032.png" src="../Media/Pasted%20image%2020220808141032.png" /></li>
+<li>Below, we can see the directory to the resource <code>/files/avatars/</code>
+<img alt="Pasted image 20220808141050.png" src="../Media/Pasted%20image%2020220808141050.png" /></li>
+<li>We are able to visit the page where <code>test.txt</code> was uploaded.
+<img alt="Pasted image 20220808141127.png" src="../Media/Pasted%20image%2020220808141127.png" /></li>
+</ul>
+<h4 id="vulnerability-assessment-exploitation_2">Vulnerability Assessment / Exploitation<a class="headerlink" href="#vulnerability-assessment-exploitation_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Therefore, we send the POST request responsible for uploading to Burp Repeater and injected a PHP one liner execution shell running OS command <code>whoami</code>.
+<img alt="Pasted image 20220808143639.png" src="../Media/Pasted%20image%2020220808143639.png" /></li>
+<li>We continue to query the directory where the php shell is located and now we know that the user account that is behind this web instance is <code>carlos</code>.
+<img alt="Pasted image 20220808143712.png" src="../Media/Pasted%20image%2020220808143712.png" /></li>
+<li>We do the same as above, just that we changed the command to <code>cat /home/carlos/secret</code> to read the secret file we are supposed to find.
+<img alt="Pasted image 20220808143856.png" src="../Media/Pasted%20image%2020220808143856.png" /></li>
+<li>We get the secret code and submitted it.
+<img alt="Pasted image 20220808143917.png" src="../Media/Pasted%20image%2020220808143917.png" />
+<img alt="Pasted image 20220808143957.png" src="../Media/Pasted%20image%2020220808143957.png" /></li>
+</ul>
+<h3 id="web-shell-upload-via-content-type-restriction-bypass">Web shell upload via Content-Type restriction bypass<a class="headerlink" href="#web-shell-upload-via-content-type-restriction-bypass" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>This lab contains a vulnerable image upload function. It attempts to prevent users from uploading unexpected file types, but relies on checking user-controllable input to verify this.</p>
+</li>
+<li>
+<p>To solve the lab, upload a basic PHP web shell and use it to exfiltrate the contents of the file <code>/home/carlos/secret</code>. Submit this secret using the button provided in the lab banner.</p>
+</li>
+<li>
+<p>You can log in to your own account using the following credentials: <code>wiener:peter</code></p>
+</li>
+</ul>
+<h4 id="enumeration_3">Enumeration<a class="headerlink" href="#enumeration_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The first few steps of enumeration is the same as the above Lab, and we are then given this login page upon logging in with the correct credentials.
+<img alt="Pasted image 20220808145056.png" src="../Media/Pasted%20image%2020220808145056.png" /></li>
+<li>Attempted to upload <code>test.txt</code> and <code>websh.php</code> but there seem to be some file checking in place thus preventing the upload. 
+<img alt="Pasted image 20220808145119.png" src="../Media/Pasted%20image%2020220808145119.png" />
+<img alt="Pasted image 20220808145136.png" src="../Media/Pasted%20image%2020220808145136.png" /></li>
+</ul>
+<h4 id="vulnerability-assessment-exploitation_3">Vulnerability Assessment / Exploitation<a class="headerlink" href="#vulnerability-assessment-exploitation_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Upon closer inpection at the POST request, we realise that the check is done using the <code>Content-Type</code> header.</li>
+<li>Hence to bypass this, we intercepted the POST request and changed the <code>Content-Type</code> to the <code>Content-Type</code> that the server accepts <code>image/jpeg</code> and <code>test.txt</code> was sucessfully uploaded in the <code>/files/avatars</code> directory.
+<img alt="Pasted image 20220808145308.png" src="../Media/Pasted%20image%2020220808145308.png" /></li>
+<li>Then we continue to upload <code>websh.php</code> which does a <code>shell_exec('whoami')</code> and the user that it is running as is <code>carlos</code>
+<img alt="Pasted image 20220808145523.png" src="../Media/Pasted%20image%2020220808145523.png" />
+<img alt="Pasted image 20220808145611.png" src="../Media/Pasted%20image%2020220808145611.png" />
+<img alt="Pasted image 20220808145709.png" src="../Media/Pasted%20image%2020220808145709.png" /></li>
+<li>Next we upload the websh.php with the one liner that does <code>cat /home/carlos/secret</code>.
+<img alt="Pasted image 20220808145733.png" src="../Media/Pasted%20image%2020220808145733.png" /></li>
+<li>Execute it and we obtain the secret code for submission.
+<img alt="Pasted image 20220808145749.png" src="../Media/Pasted%20image%2020220808145749.png" />
+<img alt="Pasted image 20220808145812.png" src="../Media/Pasted%20image%2020220808145812.png" /></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

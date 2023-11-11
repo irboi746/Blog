@@ -1,0 +1,2548 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Javascript/Node.js_Projects/">
+      
+      
+        <link rel="next" href="../../../Malware_Analysis/Notes/File_Identification%26Classification/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Web Automation Cheatsheet - irboi746's space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#web-automation-cheatsheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="irboi746&#39;s space" class="md-header__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            irboi746's space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Web Automation Cheatsheet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="irboi746&#39;s space" class="md-nav__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    irboi746's space
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Burp Academy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Burp Academy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apprentice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apprentice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/Access%20Control%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/Business%20Logic%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Logic Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/CSRF%2C%20Clickjacking%20and%20CORS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSRF, Clickjacking and CORS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/Cross%20Site%20Scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Site Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/DOM-based%20XSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM based XSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/HTTP%20Host%20Header%20Attacks%20and%20File%20Upload%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP Host Header Attacks & File Upload Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/Information%20Disclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Disclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/JWT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/Other%20Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Labs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/SQL%20Injection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Apprentice/XXE%20and%20SSRF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XXE and SSRF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practitioner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practitioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Practitioner/SQL%20Injection%20DB%20Enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection DB Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Burp_Academy/Practitioner/SQL%20Injection%20UNION%20Attack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection UNION Attack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CTF/TISC%202022%20%281%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (1)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CTF/TISC%202022%20%282%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flareon22
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flareon22
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CTF/Flareon22/FlareOn_22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flareon-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/Burp%20Extension%20-%20GUI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/Burp%20Extension%20-%20Hello%20World/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/Burp%20Extension%20-%20README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension   README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Javascript/Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Javascript/Node.js_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Web Automation Cheatsheet
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Web Automation Cheatsheet
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-snippets" class="md-nav__link">
+    Code Snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-imports" class="md-nav__link">
+    Useful Imports
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requests-library" class="md-nav__link">
+    requests Library
+  </a>
+  
+    <nav class="md-nav" aria-label="requests Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-header" class="md-nav__link">
+    HTTP Header
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-headers" class="md-nav__link">
+    Set headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-cookies" class="md-nav__link">
+    Set Cookies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requests" class="md-nav__link">
+    Requests
+  </a>
+  
+    <nav class="md-nav" aria-label="Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requests-thru-proxy" class="md-nav__link">
+    Requests thru Proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-redirect" class="md-nav__link">
+    Disable Redirect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requests-body" class="md-nav__link">
+    Requests Body
+  </a>
+  
+    <nav class="md-nav" aria-label="Requests Body">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sending-data-as-a-query-string-in-the-url" class="md-nav__link">
+    Sending data as a query string in the URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sending-data-as-a-query-string-in-the-body" class="md-nav__link">
+    Sending data as a query string in the body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sending-a-file-in-the-body" class="md-nav__link">
+    Sending a File in the body
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sessions" class="md-nav__link">
+    Sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-session" class="md-nav__link">
+    Creating Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-session-header" class="md-nav__link">
+    Set Session Header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-session-cookie" class="md-nav__link">
+    Update Session Cookie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reusable-code" class="md-nav__link">
+    Reusable Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Reusable Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-template" class="md-nav__link">
+    Start template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-as-a-configuration" class="md-nav__link">
+    CLI as a configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI as a configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clipy" class="md-nav__link">
+    cli.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlerpy" class="md-nav__link">
+    handler.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meaningful-messages" class="md-nav__link">
+    Meaningful Messages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Notes/File_Identification%26Classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Identification and Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Notes/Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Notes/Windows%20Obfuscation%20Techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Obfuscation Techniques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practical Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practical Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Practical_Malware_Analysis/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Practical_Malware_Analysis/Chapter%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Malware_Analysis/Practical_Malware_Analysis/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OWASP Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            OWASP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OWASP_Labs/Generic%20University/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic University
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OWASP_Labs/crAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    crAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PG
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            PG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PG/Linux%20-%20Cassios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cassios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RE101
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            RE101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RE101/3.%20Simple%20Lambdas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Simple Lambdas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Random Thoughts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Random Thoughts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Random_Thoughts/010622-1824/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Pentest or... not?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Random_Thoughts/Building%20a%20Personal%20Containerized%20Web%20Pentest%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building a Personal Containerized Web Pentest Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Random_Thoughts/Password%20Management%20with%20Self-Hosted%20KeeWeb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Management with Self-Hosted KeeWeb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-snippets" class="md-nav__link">
+    Code Snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-imports" class="md-nav__link">
+    Useful Imports
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requests-library" class="md-nav__link">
+    requests Library
+  </a>
+  
+    <nav class="md-nav" aria-label="requests Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-header" class="md-nav__link">
+    HTTP Header
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-headers" class="md-nav__link">
+    Set headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-cookies" class="md-nav__link">
+    Set Cookies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requests" class="md-nav__link">
+    Requests
+  </a>
+  
+    <nav class="md-nav" aria-label="Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requests-thru-proxy" class="md-nav__link">
+    Requests thru Proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-redirect" class="md-nav__link">
+    Disable Redirect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requests-body" class="md-nav__link">
+    Requests Body
+  </a>
+  
+    <nav class="md-nav" aria-label="Requests Body">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sending-data-as-a-query-string-in-the-url" class="md-nav__link">
+    Sending data as a query string in the URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sending-data-as-a-query-string-in-the-body" class="md-nav__link">
+    Sending data as a query string in the body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sending-a-file-in-the-body" class="md-nav__link">
+    Sending a File in the body
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sessions" class="md-nav__link">
+    Sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-session" class="md-nav__link">
+    Creating Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-session-header" class="md-nav__link">
+    Set Session Header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-session-cookie" class="md-nav__link">
+    Update Session Cookie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reusable-code" class="md-nav__link">
+    Reusable Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Reusable Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-template" class="md-nav__link">
+    Start template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-as-a-configuration" class="md-nav__link">
+    CLI as a configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI as a configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clipy" class="md-nav__link">
+    cli.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlerpy" class="md-nav__link">
+    handler.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meaningful-messages" class="md-nav__link">
+    Meaningful Messages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="web-automation-cheatsheet">Web Automation Cheatsheet<a class="headerlink" href="#web-automation-cheatsheet" title="Permanent link">&para;</a></h1>
+<p>A cheatsheet inspired and based on <a href="https://github.com/rizemon/exploit-writing-for-oswe">Rizemon's Exploit Writing for OSWE</a>. "exploit writing" goes beyond OSWE and what was taught is also useful in engagements especially when you need to automate the tedious stuff, hence this cheatsheet so that you can spin up a script real quick. Will add <a href="#code-snippets">#Code Snippets</a> for other libraries as I go along.</p>
+<p>Of course no matter how quick you can script, it is also worth to note the Return of Investment (ROI) of automation:</p>
+<blockquote>
+<p>Time saved with Automation &gt; Time spent to Code</p>
+</blockquote>
+<h2 id="code-snippets">Code Snippets<a class="headerlink" href="#code-snippets" title="Permanent link">&para;</a></h2>
+<h3 id="useful-imports">Useful Imports<a class="headerlink" href="#useful-imports" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code># For sending HTTP requests
+import requests
+
+# For Base64 encoding/decoding
+from base64 import b64encode, b64decode, urlsafe_b64encode, urlsafe_b64decode
+
+# For getting current time or for calculating time delays
+from time import time
+
+# For regular expressions
+import re
+
+# For running shell commands
+import subprocess
+
+# For running a HTTP server in the background
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+# For quick creation of arguments and help menu
+import argparse
+</code></pre></div>
+<h2 id="requests-library"><code>requests</code> Library<a class="headerlink" href="#requests-library" title="Permanent link">&para;</a></h2>
+<h3 id="http-header">HTTP Header<a class="headerlink" href="#http-header" title="Permanent link">&para;</a></h3>
+<h4 id="set-headers">Set headers<a class="headerlink" href="#set-headers" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>headers = {
+    &quot;X-Forwarded-For&quot;: &quot;127.0.0.1&quot;
+}
+
+requests.get(&quot;https://github.com&quot;, headers=headers)
+</code></pre></div>
+<h4 id="set-cookies">Set Cookies<a class="headerlink" href="#set-cookies" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>cookies = {
+    &quot;PHPSESSID&quot;: &quot;fakesession&quot;
+}
+
+requests.get(&quot;https://github.com&quot;, cookies=cookies)
+</code></pre></div>
+<h3 id="requests">Requests<a class="headerlink" href="#requests" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code># GET method
+requests.get(&quot;https://github.com&quot;)
+
+# POST method
+requests.post(&quot;https://github.com&quot;)
+
+# PUT method
+requests.put(&quot;https://github.com&quot;)
+
+# PATCH method
+requests.patch(&quot;https://github.com&quot;)
+
+# DELETE method
+requests.delete(&quot;https://github.com&quot;)
+</code></pre></div>
+<h4 id="requests-thru-proxy">Requests thru Proxy<a class="headerlink" href="#requests-thru-proxy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>PROXY = {
+   &#39;http&#39;:&#39;http://127.0.0.1:8080&#39;
+   &#39;https&#39;:&#39;http://127.0.0.1&#39;
+}
+requests.get(&quot;https://github.com&quot;,proxies=PROXY)
+</code></pre></div>
+<h4 id="disable-redirect">Disable Redirect<a class="headerlink" href="#disable-redirect" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>requests.post(&quot;https://github.com/login&quot;, allow_redirects=False)
+</code></pre></div>
+<h4 id="requests-body">Requests Body<a class="headerlink" href="#requests-body" title="Permanent link">&para;</a></h4>
+<h5 id="sending-data-as-a-query-string-in-the-url">Sending data as a query string in the URL<a class="headerlink" href="#sending-data-as-a-query-string-in-the-url" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>params = {
+    &quot;foo&quot;: &quot;bar&quot;
+}
+
+requests.get(&quot;https://github.com&quot;, params=params)
+</code></pre></div>
+<h5 id="sending-data-as-a-query-string-in-the-body">Sending data as a query string in the body<a class="headerlink" href="#sending-data-as-a-query-string-in-the-body" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>data = {
+    &quot;foo&quot;: &quot;bar&quot;
+}
+# sends data as &quot;data&quot; e.g &quot;foo=bar&quot;
+requests.post(&quot;https://github.com&quot;, data=data)
+
+# sends data as &quot;json&quot; e.g &quot;{&#39;foo&#39;: &#39;bar&#39;}&quot; 
+requests.post(&quot;https://github.com&quot;, json=data)
+</code></pre></div>
+<h5 id="sending-a-file-in-the-body">Sending a File in the body<a class="headerlink" href="#sending-a-file-in-the-body" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>with open(&#39;readme.txt&#39;,&#39;r&#39;) as f:
+   requests.post(&quot;https://github.com&quot;, files=f)
+</code></pre></div>
+<h4 id="sessions">Sessions<a class="headerlink" href="#sessions" title="Permanent link">&para;</a></h4>
+<h5 id="creating-session">Creating Session<a class="headerlink" href="#creating-session" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>session = requests.Session()
+session.get(&quot;https://github.com&quot;)
+</code></pre></div>
+<h5 id="set-session-header">Set Session Header<a class="headerlink" href="#set-session-header" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>session = requests.Session()
+session.headers[&quot;Authorization&quot;] = &quot;Basic 123&quot;
+</code></pre></div>
+<h5 id="update-session-cookie">Update Session Cookie<a class="headerlink" href="#update-session-cookie" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>session = requests.Session()
+session.cookies.update({&quot;PHPSESSID&quot;: &quot;fakesession&quot;})
+</code></pre></div>
+<h3 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>resp_obj = requests.get(&quot;https://github.com&quot;)
+
+# HTTP status code (e.g 404, 500, 301)
+resp_obj.status_code
+
+# HTTP response headers (e.g Location, Content-Disposition)
+resp_obj.headers[&quot;Location&quot;]
+
+# Body as bytes
+resp_obj.content
+
+# Body as a string
+resp_obj.text
+
+# Body as a dictionary (if body is a JSON)
+resp_obj.json()
+</code></pre></div>
+<h2 id="reusable-code">Reusable Code<a class="headerlink" href="#reusable-code" title="Permanent link">&para;</a></h2>
+<h3 id="start-template">Start template<a class="headerlink" href="#start-template" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>import argparse
+import requests
+
+def main():
+   parser = argparse.ArgumentParser()
+   parser.add_argument(&#39;-i&#39;,&#39;--IP&#39;,help=&#39;IP address&#39;,required=True)
+   parser.add_argument(&#39;-p&#39;,&#39;--proxy&#39;,help=&#39;ip address of proxy&#39;,required=False)
+   args = parser.parse_args()
+
+   print(&quot;Hello World!&quot;)
+
+if __name__ == &quot;__main__&quot;:
+   main()
+</code></pre></div>
+<h3 id="cli-as-a-configuration">CLI as a configuration<a class="headerlink" href="#cli-as-a-configuration" title="Permanent link">&para;</a></h3>
+<p>One of the most compelling reason to use this is so that you can organise your commands, subcommands and their respective arguments in a dictionary thus greatly improving readability and maintainability.</p>
+<p>This method can be observed in <a href="https://github.com/team-s0l1d1ty/apimap/tree/main/CLI">apimap</a> where nested subcommands are parsed as a python dictionary and generated dynamically. As a result we can simply change the python dictionary and it will be reflected in the CLI. </p>
+<p>Downside is that we will also need a second dictionary that maps the handler function to the arguments.</p>
+<p>Shown below is a sample <code>cli.py</code> and <code>handler.py</code>.</p>
+<h4 id="clipy">cli.py<a class="headerlink" href="#clipy" title="Permanent link">&para;</a></h4>
+<p>python dictionary configuration
+<div class="highlight"><pre><span></span><code><span class="n">commands</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;cmd1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;cmd1_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd1_param&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;cmd2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;subcommands&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;cmd2_subcmd1&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd2_subcmd1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;cmd_subcmd1_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd2_subcmd1_args&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;cmd2_subcmd2&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd2_subcmd2&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;cmd2_subcmd2_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd2_subcmd2_args&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;cmd3&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;subcommands&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;cmd3_subcmd1&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;subcommands&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;cmd3_subcmd1_subcmd1&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd1_subcmd1&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s1">&#39;cmd3_subcmd1_subcmd1_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd1_subcmd1_args&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="s1">&#39;cmd3_subcmd1_subcmd2&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd1_subcmd2&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s1">&#39;cmd3_subcmd1_subcmd2_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd1_subcmd2&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;cmd3_subcmd2&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd2&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;subcommands&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;cmd3_subcmd2_subcmd1&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd2_subcmd1&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s1">&#39;cmd3_subcmd2_subcmd1_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;help for cmd3_subcmd2_subcmd1_args&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>cli.py
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">generate_args</span><span class="p">(</span><span class="n">args_dict</span><span class="p">,</span> <span class="n">subparser</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;subcommands&#39;</span> <span class="ow">in</span> <span class="n">args_dict</span><span class="p">:</span>
+        <span class="n">subparsers_sub</span> <span class="o">=</span> <span class="n">subparser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;subcommand&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;subcommands&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">subcommand</span><span class="p">,</span> <span class="n">subcommand_dict</span> <span class="ow">in</span> <span class="n">args_dict</span><span class="p">[</span><span class="s1">&#39;subcommands&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">subparser_sub</span> <span class="o">=</span> <span class="n">subparsers_sub</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="n">subcommand</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">subcommand_dict</span><span class="p">[</span><span class="s1">&#39;help&#39;</span><span class="p">])</span>
+            <span class="n">generate_args</span><span class="p">(</span><span class="n">subcommand_dict</span><span class="p">,</span> <span class="n">subparser_sub</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;args&#39;</span> <span class="ow">in</span> <span class="n">args_dict</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">arg</span><span class="p">,</span> <span class="n">arg_dict</span> <span class="ow">in</span> <span class="n">args_dict</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">subparser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">arg_dict</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;APIMAP&#39;</span><span class="p">)</span>
+
+    <span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;subcommands&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
+    <span class="n">subparsers</span><span class="o">.</span><span class="n">required</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Generate the command-line arguments based on the dictionary</span>
+    <span class="k">for</span> <span class="n">command</span><span class="p">,</span> <span class="n">command_dict</span> <span class="ow">in</span> <span class="n">commands</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">command_parser</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">command_dict</span><span class="p">[</span><span class="s1">&#39;help&#39;</span><span class="p">])</span>
+        <span class="n">generate_args</span><span class="p">(</span><span class="n">command_dict</span><span class="p">,</span> <span class="n">command_parser</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_arguments</span><span class="p">()</span>
+</code></pre></div></p>
+<h4 id="handlerpy">handler.py<a class="headerlink" href="#handlerpy" title="Permanent link">&para;</a></h4>
+<p>python dictionary configuration
+<div class="highlight"><pre><span></span><code><span class="n">command_handlers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;cmd1&#39;</span><span class="p">:</span> <span class="n">handle_cmd1</span><span class="p">,</span>
+    <span class="s1">&#39;cmd2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;cmd2_subcmd1&#39;</span><span class="p">:</span> <span class="n">handle_cmd2_subcmd1</span><span class="p">,</span>
+        <span class="s1">&#39;cmd2_subcmd2&#39;</span><span class="p">:</span> <span class="n">handle_cmd2_subcmd2</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;cmd3&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;cmd3_subcmd1_subcmd1&#39;</span><span class="p">:</span> <span class="n">handle_cmd3_subcmd1_subcmd1</span><span class="p">,</span>
+        <span class="s1">&#39;cmd3_subcmd1_subcmd2&#39;</span><span class="p">:</span> <span class="n">handle_gen_cmd3_subcmd1_subcmd2</span><span class="p">,</span>
+        <span class="s1">&#39;cmd3_subcmd2_subcmd1&#39;</span><span class="p">:</span> <span class="n">handle_cmd3_subcmd2_subcmd1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>handler.py
+<div class="highlight"><pre><span></span><code><span class="c1"># define the handlers here</span>
+<span class="c1"># handlers can be imported too</span>
+
+<span class="k">def</span> <span class="nf">handle_commands</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span>
+    <span class="n">handler</span> <span class="o">=</span> <span class="n">command_handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">handler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid command: </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">handler</span><span class="p">):</span>
+        <span class="n">handler</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">subcommand</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">subcommand</span>
+        <span class="n">subcommand_handler</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subcommand</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">subcommand_handler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid subcommand: </span><span class="si">{</span><span class="n">subcommand</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">subcommand_handler</span><span class="p">):</span>
+            <span class="n">subcommand_handler</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">handle_commands</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">subcommand_handler</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid command handler: </span><span class="si">{</span><span class="n">handler</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h2>
+<h3 id="meaningful-messages">Meaningful Messages<a class="headerlink" href="#meaningful-messages" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>print(&#39;[+] Exploit has succeeded&#39;) 
+print(&#39;[-] Exploit has failed&#39;)
+print(&#39;[=] Running Process&#39;)
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2394 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Generic%20University/">
+      
+      
+        <link rel="next" href="../../PG/Linux%20-%20Cassios/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>crAPI - irboi746's space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="irboi746&#39;s space" class="md-header__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            irboi746's space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              crAPI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="irboi746&#39;s space" class="md-nav__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    irboi746's space
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Burp Academy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Burp Academy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apprentice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apprentice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Access%20Control%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Business%20Logic%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Logic Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/CSRF%2C%20Clickjacking%20and%20CORS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSRF, Clickjacking and CORS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Cross%20Site%20Scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Site Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/DOM-based%20XSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM based XSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/HTTP%20Host%20Header%20Attacks%20and%20File%20Upload%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP Host Header Attacks & File Upload Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Information%20Disclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Disclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/JWT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Other%20Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Labs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/SQL%20Injection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/XXE%20and%20SSRF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XXE and SSRF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practitioner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practitioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Practitioner/SQL%20Injection%20DB%20Enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection DB Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Practitioner/SQL%20Injection%20UNION%20Attack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection UNION Attack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TISC%202022%20%281%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (1)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TISC%202022%20%282%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flareon22
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flareon22
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/Flareon22/FlareOn_22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flareon-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20GUI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20Hello%20World/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension   README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Javascript/Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Javascript/Node.js_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Python/Web%20Automation%20Cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Automation Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/File_Identification%26Classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Identification and Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/Windows%20Obfuscation%20Techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Obfuscation Techniques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practical Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practical Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OWASP Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            OWASP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Generic%20University/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic University
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    crAPI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    crAPI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bola-vulnerabilities" class="md-nav__link">
+    BOLA Vulnerabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="BOLA Vulnerabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-access-details-of-another-users-vehicle" class="md-nav__link">
+    Challenge 1 - Access details of another user’s vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-access-mechanic-reports-of-other-users" class="md-nav__link">
+    Challenge 2 - Access mechanic reports of other users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broken-user-authentication" class="md-nav__link">
+    Broken User Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Broken User Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-reset-the-password-of-a-different-user" class="md-nav__link">
+    Challenge 3 - Reset the password of a different user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-14-find-an-endpoint-that-does-not-perform-authentication-checks-for-a-user" class="md-nav__link">
+    Challenge 14 - Find an endpoint that does not perform authentication checks for a user.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excessive-data-exposure" class="md-nav__link">
+    Excessive Data Exposure
+  </a>
+  
+    <nav class="md-nav" aria-label="Excessive Data Exposure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-find-an-api-endpoint-that-leaks-sensitive-information-of-other-users" class="md-nav__link">
+    Challenge 4 - Find an API endpoint that leaks sensitive information of other users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    Rate-limiting
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate-limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-6-perform-a-layer-7-dos-using-contact-mechanic-feature" class="md-nav__link">
+    Challenge 6 - Perform a layer 7 DoS using ‘contact mechanic’ feature
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-assignment" class="md-nav__link">
+    Mass Assignment
+  </a>
+  
+    <nav class="md-nav" aria-label="Mass Assignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-8-get-an-item-for-free" class="md-nav__link">
+    Challenge 8 - Get an item for free
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-9-increase-your-balance-by-1000-or-more" class="md-nav__link">
+    Challenge 9 - Increase your balance by $1,000 or more
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssrf" class="md-nav__link">
+    SSRF
+  </a>
+  
+    <nav class="md-nav" aria-label="SSRF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-11-make-crapi-send-an-http-call-to-wwwgooglecom-and-return-the-http-response" class="md-nav__link">
+    Challenge 11 - Make crAPI send an HTTP call to "www[.]google[.]com" and return the HTTP response.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injection" class="md-nav__link">
+    Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-12-find-a-way-to-get-free-coupons-without-knowing-the-coupon-code-nosql" class="md-nav__link">
+    Challenge 12 - Find a way to get free coupons without knowing the coupon code. (NoSQL)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-not-attempted" class="md-nav__link">
+    Challenges Not Attempted
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges Not Attempted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excessive-data-exposure-challenge-5-find-an-api-endpoint-that-leaks-an-internal-property-of-a-video" class="md-nav__link">
+    (Excessive Data Exposure) Challenge 5 - Find an API endpoint that leaks an internal property of a video
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfla-challenge-7-delete-a-video-of-another-user" class="md-nav__link">
+    (BFLA) Challenge 7 - Delete a video of another user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mass-assignment-challenge-10-update-internal-video-properties" class="md-nav__link">
+    (Mass Assignment) Challenge 10 - Update internal video properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injection-challenge-13-find-a-way-to-redeem-a-coupon-that-you-have-already-claimed-by-modifying-the-database-sql" class="md-nav__link">
+    (Injection) Challenge 13 - Find a way to redeem a coupon that you have already claimed by modifying the database (SQL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broken-authentication-challenge-15-find-a-way-to-forge-valid-jwt-tokens" class="md-nav__link">
+    (Broken Authentication) Challenge 15 - Find a way to forge valid JWT Tokens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PG
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            PG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PG/Linux%20-%20Cassios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cassios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RE101
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            RE101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RE101/3.%20Simple%20Lambdas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Simple Lambdas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Random Thoughts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Random Thoughts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/010622-1824/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Pentest or... not?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/Building%20a%20Personal%20Containerized%20Web%20Pentest%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building a Personal Containerized Web Pentest Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/Password%20Management%20with%20Self-Hosted%20KeeWeb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Management with Self-Hosted KeeWeb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bola-vulnerabilities" class="md-nav__link">
+    BOLA Vulnerabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="BOLA Vulnerabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-access-details-of-another-users-vehicle" class="md-nav__link">
+    Challenge 1 - Access details of another user’s vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-access-mechanic-reports-of-other-users" class="md-nav__link">
+    Challenge 2 - Access mechanic reports of other users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broken-user-authentication" class="md-nav__link">
+    Broken User Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Broken User Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-reset-the-password-of-a-different-user" class="md-nav__link">
+    Challenge 3 - Reset the password of a different user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-14-find-an-endpoint-that-does-not-perform-authentication-checks-for-a-user" class="md-nav__link">
+    Challenge 14 - Find an endpoint that does not perform authentication checks for a user.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excessive-data-exposure" class="md-nav__link">
+    Excessive Data Exposure
+  </a>
+  
+    <nav class="md-nav" aria-label="Excessive Data Exposure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-find-an-api-endpoint-that-leaks-sensitive-information-of-other-users" class="md-nav__link">
+    Challenge 4 - Find an API endpoint that leaks sensitive information of other users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    Rate-limiting
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate-limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-6-perform-a-layer-7-dos-using-contact-mechanic-feature" class="md-nav__link">
+    Challenge 6 - Perform a layer 7 DoS using ‘contact mechanic’ feature
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-assignment" class="md-nav__link">
+    Mass Assignment
+  </a>
+  
+    <nav class="md-nav" aria-label="Mass Assignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-8-get-an-item-for-free" class="md-nav__link">
+    Challenge 8 - Get an item for free
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-9-increase-your-balance-by-1000-or-more" class="md-nav__link">
+    Challenge 9 - Increase your balance by $1,000 or more
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssrf" class="md-nav__link">
+    SSRF
+  </a>
+  
+    <nav class="md-nav" aria-label="SSRF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-11-make-crapi-send-an-http-call-to-wwwgooglecom-and-return-the-http-response" class="md-nav__link">
+    Challenge 11 - Make crAPI send an HTTP call to "www[.]google[.]com" and return the HTTP response.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injection" class="md-nav__link">
+    Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-12-find-a-way-to-get-free-coupons-without-knowing-the-coupon-code-nosql" class="md-nav__link">
+    Challenge 12 - Find a way to get free coupons without knowing the coupon code. (NoSQL)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-not-attempted" class="md-nav__link">
+    Challenges Not Attempted
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges Not Attempted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excessive-data-exposure-challenge-5-find-an-api-endpoint-that-leaks-an-internal-property-of-a-video" class="md-nav__link">
+    (Excessive Data Exposure) Challenge 5 - Find an API endpoint that leaks an internal property of a video
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfla-challenge-7-delete-a-video-of-another-user" class="md-nav__link">
+    (BFLA) Challenge 7 - Delete a video of another user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mass-assignment-challenge-10-update-internal-video-properties" class="md-nav__link">
+    (Mass Assignment) Challenge 10 - Update internal video properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injection-challenge-13-find-a-way-to-redeem-a-coupon-that-you-have-already-claimed-by-modifying-the-database-sql" class="md-nav__link">
+    (Injection) Challenge 13 - Find a way to redeem a coupon that you have already claimed by modifying the database (SQL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broken-authentication-challenge-15-find-a-way-to-forge-valid-jwt-tokens" class="md-nav__link">
+    (Broken Authentication) Challenge 15 - Find a way to forge valid JWT Tokens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="crapi">crAPI<a class="headerlink" href="#crapi" title="Permanent link">&para;</a></h1>
+<p>Trying this lab out to come up with templates and template generation logic for <a href="https://github.com/team-s0l1d1ty/apimap">apimap</a>. As such, not all challenges are attempted. crAPI is also used to demonstrate how <a href="https://github.com/team-s0l1d1ty/apimap/tree/main/Sample_Templates/crAPI_Sample">apimap template for crAPI</a> can be used for API testing, PoC writing. </p>
+<p>We also did not come up with templates for brute-forcing of fuzzing. While it is possible to do such tasks with <a href="https://github.com/team-s0l1d1ty/apimap">apimap</a> we believe that it is not optimal and there are more effective tools out there.</p>
+<h2 id="bola-vulnerabilities">BOLA Vulnerabilities<a class="headerlink" href="#bola-vulnerabilities" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-1-access-details-of-another-users-vehicle">Challenge 1 - Access details of another user’s vehicle<a class="headerlink" href="#challenge-1-access-details-of-another-users-vehicle" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>To solve the challenge, you need to leak sensitive information of another user’s vehicle.</p>
+<p>Since vehicle IDs are not sequential numbers, but GUIDs, you need to find a way to expose the vehicle ID of another user. Find an API endpoint that receives a vehicle ID and returns information about it.</p>
+</blockquote>
+<p>Upon logging in we noticed that there is an <code>/identity/api/v2/vehicle/{uuid}/location</code> API. 
+<img alt="Pasted image 20230701191944.png" src="../Media/Pasted%20image%2020230701191944.png" />
+This API gets the coordinates of the car.
+<img alt="Pasted image 20230701192002.png" src="../Media/Pasted%20image%2020230701192002.png" />
+We can test this by keying another valid UUID. To get another UUID we would need to rely on <a href="#challenge-4---find-an-api-endpoint-that-leaks-sensitive-information-of-other-users">#Challenge 4 - Find an API endpoint that leaks sensitive information of other users</a>.</p>
+<p>Using a valid <code>vehicleid</code> we attempt to check vehicle location unauthenticated.
+<img alt="Pasted image 20230701202409.png" src="../Media/Pasted%20image%2020230701202409.png" />
+Seems like we will be given a 401 Error, with "Invalid Token"
+<img alt="Pasted image 20230701202421.png" src="../Media/Pasted%20image%2020230701202421.png" /></p>
+<p>We then replayed the request for our own vehicle with our own token.
+<img alt="Pasted image 20230701202529.png" src="../Media/Pasted%20image%2020230701202529.png" />
+<img alt="Pasted image 20230701202542.png" src="../Media/Pasted%20image%2020230701202542.png" /></p>
+<p>Using the same Authorization token, we attempt to replay another valid <code>vehicleid</code>
+<img alt="Pasted image 20230701203528.png" src="../Media/Pasted%20image%2020230701203528.png" />
+As can be seen from the response, we are able to get another car's information. 
+<img alt="Pasted image 20230701203539.png" src="../Media/Pasted%20image%2020230701203539.png" /></p>
+<h3 id="challenge-2-access-mechanic-reports-of-other-users">Challenge 2 - Access mechanic reports of other users<a class="headerlink" href="#challenge-2-access-mechanic-reports-of-other-users" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>crAPI allows vehicle owners to contact their mechanics by submitting a "contact mechanic" form. This challenge is about accessing mechanic reports that were submitted by other users.</p>
+</blockquote>
+<p>We start our analysis of mechanic report by first submitting a report of our own.
+<img alt="Pasted image 20230701184832.png" src="../Media/Pasted%20image%2020230701184832.png" />
+We noticed in the response, there is an <code>/api/mechanic/mechanic_report?report_id=6</code>. This is not in the user interface we have.
+<img alt="Pasted image 20230701184901.png" src="../Media/Pasted%20image%2020230701184901.png" />
+We visited the link, and it seems like we are able to access our own report with no token needed!
+<img alt="Pasted image 20230701185028.png" src="../Media/Pasted%20image%2020230701185028.png" />
+<img alt="Pasted image 20230701185141.png" src="../Media/Pasted%20image%2020230701185141.png" />
+We noticed that the report number is sequential. Hence we attempted to brute-force used intruder to retrieve all other reports.
+<img alt="Pasted image 20230701185239.png" src="../Media/Pasted%20image%2020230701185239.png" />
+Retrieving <code>report_id=2</code>
+<img alt="Pasted image 20230701185607.png" src="../Media/Pasted%20image%2020230701185607.png" />
+<img alt="Pasted image 20230701185705.png" src="../Media/Pasted%20image%2020230701185705.png" /></p>
+<p>Seems like there are only 6 reports.
+<img alt="Pasted image 20230701185747.png" src="../Media/Pasted%20image%2020230701185747.png" />
+<img alt="Pasted image 20230701185737.png" src="../Media/Pasted%20image%2020230701185737.png" /></p>
+<h2 id="broken-user-authentication">Broken User Authentication<a class="headerlink" href="#broken-user-authentication" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-3-reset-the-password-of-a-different-user">Challenge 3 - Reset the password of a different user<a class="headerlink" href="#challenge-3-reset-the-password-of-a-different-user" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Find an email address of another user on crAPI</p>
+<p>Brute forcing might be the answer. If you face any protection mechanisms, remember to leverage the predictable nature of REST APIs to find more similar API endpoints.</p>
+</blockquote>
+<p>We tried the forget password function and it seems like there are API calls are as follows:
+<img alt="Pasted image 20230709143010.png" src="../Media/Pasted%20image%2020230709143010.png" /></p>
+<p><strong>/identity/api/auth/forget-password</strong>
+Shown below is Request/Response when a valid email is sent
+<img alt="Pasted image 20230709143133.png" src="../Media/Pasted%20image%2020230709143133.png" />
+<img alt="Pasted image 20230709143152.png" src="../Media/Pasted%20image%2020230709143152.png" /></p>
+<p>Then we tried to send an invalid email and the following is the Response.
+<img alt="Pasted image 20230709143313.png" src="../Media/Pasted%20image%2020230709143313.png" />
+This in itself is an issue. The error message is overly verbose and it can help in brute-forcing the email.</p>
+<p><strong>/identity/api/auth/v3/check-otp</strong>
+Shown below is the Request/Response of a successful OTP password change.
+<img alt="Pasted image 20230709143441.png" src="../Media/Pasted%20image%2020230709143441.png" />
+<img alt="Pasted image 20230709143534.png" src="../Media/Pasted%20image%2020230709143534.png" /></p>
+<p>Then a response when we sent invalid OTP.
+<img alt="Pasted image 20230709143619.png" src="../Media/Pasted%20image%2020230709143619.png" /></p>
+<p>We can skip the brute-forcing of valid email since <a href="#challenge-4---find-an-api-endpoint-that-leaks-sensitive-information-of-other-users">#Challenge 4 - Find an API endpoint that leaks sensitive information of other users</a> is one such API that leaks the email address of other users.</p>
+<p>As such, we will only need to send a password reset request for an email and brute-force the OTP (4 numeric digits - 10000 possibilities).</p>
+<p>However, there seem to be some protection mechanism.
+<img alt="Pasted image 20230709144305.png" src="../Media/Pasted%20image%2020230709144305.png" /></p>
+<p>After number of attempts exceeded, when we used the correct OTP below.
+<img alt="Pasted image 20230709144540.png" src="../Media/Pasted%20image%2020230709144540.png" />
+<img alt="Pasted image 20230709144605.png" src="../Media/Pasted%20image%2020230709144605.png" /></p>
+<p>We get an ERROR response. The OTP has been invalidated.
+<img alt="Pasted image 20230709144640.png" src="../Media/Pasted%20image%2020230709144640.png" /></p>
+<p>But we do notice something peculiar.
+<img alt="Pasted image 20230709144732.png" src="../Media/Pasted%20image%2020230709144732.png" />
+Most of the endpoints we have are <code>/v2/</code> however this is <code>/v3/</code>. Could there have been a <code>/identity/api/auth/v1/check-otp</code> or a <code>/identity/api/auth/v2/check-otp</code> endpoint?</p>
+<p>Going by this, we sent request to the respective paths. We found out that <code>/identity/api/auth/v1/check-otp</code> is non-existent
+<img alt="Pasted image 20230709145002.png" src="../Media/Pasted%20image%2020230709145002.png" />
+<img alt="Pasted image 20230709145015.png" src="../Media/Pasted%20image%2020230709145015.png" /></p>
+<p>However, <code>/identity/api/auth/v2/check-otp</code> is a valid and working endpoint!</p>
+<p><img alt="Pasted image 20230709144923.png" src="../Media/Pasted%20image%2020230709144923.png" />
+<img alt="Pasted image 20230709144933.png" src="../Media/Pasted%20image%2020230709144933.png" /></p>
+<p><img alt="Pasted image 20230709145210.png" src="../Media/Pasted%20image%2020230709145210.png" />
+<img alt="Pasted image 20230709145221.png" src="../Media/Pasted%20image%2020230709145221.png" /></p>
+<p>And even after sending 20 payloads, we are not locked out! Seems like we can brute-force using this endpoint!
+<img alt="Pasted image 20230709145530.png" src="../Media/Pasted%20image%2020230709145530.png" /></p>
+<p>As can be seen below, we have successfully changed the password of the user!
+<img alt="Pasted image 20230709145746.png" src="../Media/Pasted%20image%2020230709145746.png" /></p>
+<h3 id="challenge-14-find-an-endpoint-that-does-not-perform-authentication-checks-for-a-user">Challenge 14 - Find an endpoint that does not perform authentication checks for a user.<a class="headerlink" href="#challenge-14-find-an-endpoint-that-does-not-perform-authentication-checks-for-a-user" title="Permanent link">&para;</a></h3>
+<p>Through <a href="#challenge-2---access-mechanic-reports-of-other-users">#Challenge 2 - Access mechanic reports of other users</a>, we know that <code>/api/mechanic/mechanic_report?report_id={id}</code> endpoints does not require authentication.</p>
+<h2 id="excessive-data-exposure">Excessive Data Exposure<a class="headerlink" href="#excessive-data-exposure" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-4-find-an-api-endpoint-that-leaks-sensitive-information-of-other-users">Challenge 4 - Find an API endpoint that leaks sensitive information of other users<a class="headerlink" href="#challenge-4-find-an-api-endpoint-that-leaks-sensitive-information-of-other-users" title="Permanent link">&para;</a></h3>
+<p>We notice that API <code>/community/api/v2/community/posts/recent</code> called when we browse to <code>http://localhost:8888/forum</code> reveals more than just title and content of the post but also <code>vehicleid</code>
+<img alt="Pasted image 20230701202009.png" src="../Media/Pasted%20image%2020230701202009.png" />
+<img alt="Pasted image 20230701202223.png" src="../Media/Pasted%20image%2020230701202223.png" /></p>
+<h2 id="rate-limiting">Rate-limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-6-perform-a-layer-7-dos-using-contact-mechanic-feature">Challenge 6 - Perform a layer 7 DoS using ‘contact mechanic’ feature<a class="headerlink" href="#challenge-6-perform-a-layer-7-dos-using-contact-mechanic-feature" title="Permanent link">&para;</a></h3>
+<p>Owing to our <a href="#challenge-11---make-crapi-send-an-http-call-to-wwwgooglecom-and-return-the-http-response">#Challenge 11 - Make crAPI send an HTTP call to "www[.]google[.]com" and return the HTTP response.</a> discovery we attempt to perform a layer 7 DoS by simply changing the url of <code>mechanic_api</code> to an invalid one, set <code>repeat_request_if_failed</code> to <code>true</code> and <code>number_of_repeats</code> to a large enough number.</p>
+<p><img alt="Pasted image 20230703215553.png" src="../Media/Pasted%20image%2020230703215553.png" />
+From the response, it seems like we have caused a layer 7 DoS.
+<img alt="Pasted image 20230703215747.png" src="../Media/Pasted%20image%2020230703215747.png" /></p>
+<h2 id="mass-assignment">Mass Assignment<a class="headerlink" href="#mass-assignment" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-8-get-an-item-for-free">Challenge 8 - Get an item for free<a class="headerlink" href="#challenge-8-get-an-item-for-free" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>crAPI allows users to return items they have ordered. You simply click the "return order" button, receive a QR code and show it in a USPS store. To solve this challenge, you need to find a way to get refunded for an item that you haven’t actually returned.</p>
+<p>Leverage the predictable nature of REST APIs to find a shadow API endpoint that allows you to edit properties of a specific order.</p>
+</blockquote>
+<p>Analysing the business logic flow with burp, we realised that order returns are related to APIs with /orders in them.
+<img alt="Pasted image 20230701235142.png" src="../Media/Pasted%20image%2020230701235142.png" /></p>
+<p>Again using the apimap, we extract the relevant endpoints from the API specs.
+<img alt="Pasted image 20230701235055.png" src="../Media/Pasted%20image%2020230701235055.png" /></p>
+<p>An interesting API is the <code>/workshop/api/shop/orders/{order_id}</code> where there is a <code>GET</code> and a <code>PUT</code> method.  To get a valid <code>order_id</code>, we would first need to purchase an item and this would use the <code>POST</code> method on <code>/workshop/api/shop/orders/</code> endpoint
+<img alt="Pasted image 20230702000658.png" src="../Media/Pasted%20image%2020230702000658.png" />
+<img alt="Pasted image 20230702000722.png" src="../Media/Pasted%20image%2020230702000722.png" /></p>
+<p>Shown below is a valid GET request, after we have purchased the item.</p>
+<p><img alt="Pasted image 20230702000513.png" src="../Media/Pasted%20image%2020230702000513.png" />
+Notice we only bought 1 and the variable quantity is 1.
+<img alt="Pasted image 20230702000531.png" src="../Media/Pasted%20image%2020230702000531.png" /></p>
+<p>We analyse the API schema and it seems that we might be able to edit the ProductQuantity with the <code>PUT</code> request even after we have bought and paid for the item.</p>
+<p><img alt="Pasted image 20230701235714.png" src="../Media/Pasted%20image%2020230701235714.png" /></p>
+<p>We test this out by sending the request as follows.</p>
+<p><img alt="Pasted image 20230702000948.png" src="../Media/Pasted%20image%2020230702000948.png" />
+We get an 200 OK response with the quantity altered.
+<img alt="Pasted image 20230702001049.png" src="../Media/Pasted%20image%2020230702001049.png" /></p>
+<p>We send the corresponding <code>GET</code> request again to double confirm the change.
+<img alt="Pasted image 20230702001151.png" src="../Media/Pasted%20image%2020230702001151.png" />
+<img alt="Pasted image 20230702001202.png" src="../Media/Pasted%20image%2020230702001202.png" /></p>
+<p>We are also able to do this to items that are return "pending status".
+<img alt="Pasted image 20230702002932.png" src="../Media/Pasted%20image%2020230702002932.png" />
+<img alt="Pasted image 20230702002943.png" src="../Media/Pasted%20image%2020230702002943.png" /></p>
+<p>However, this did not increase our credit. Instead, within the API specs we found a peculiar error message.</p>
+<p><img alt="Pasted image 20230702003849.png" src="../Media/Pasted%20image%2020230702003849.png" /></p>
+<p>Based on the request/response below, even though it is not documented, it seems like we might just be able to manipulate "status"</p>
+<p><img alt="Pasted image 20230702003957.png" src="../Media/Pasted%20image%2020230702003957.png" />
+<img alt="Pasted image 20230702004007.png" src="../Media/Pasted%20image%2020230702004007.png" /></p>
+<p>True enough, we were able to change status from "pending return" back to "delivered".</p>
+<p><img alt="Pasted image 20230702004131.png" src="../Media/Pasted%20image%2020230702004131.png" />
+<img alt="Pasted image 20230702004153.png" src="../Media/Pasted%20image%2020230702004153.png" /></p>
+<p>That being the case, perhaps if we change it to "returned" we might get more credit back than expected?</p>
+<p>We tested this idea out and upon changing "status" to "returned" 
+<img alt="Pasted image 20230702004326.png" src="../Media/Pasted%20image%2020230702004326.png" />
+<img alt="Pasted image 20230702004340.png" src="../Media/Pasted%20image%2020230702004340.png" /></p>
+<p>We were able to see an increase in our credit through the <code>GET /workshop/api/shop/products</code>.</p>
+<p><img alt="Pasted image 20230702004416.png" src="../Media/Pasted%20image%2020230702004416.png" />
+From $60.0 to $160.0
+<img alt="Pasted image 20230702004450.png" src="../Media/Pasted%20image%2020230702004450.png" />
+<img alt="Pasted image 20230702004503.png" src="../Media/Pasted%20image%2020230702004503.png" /></p>
+<h3 id="challenge-9-increase-your-balance-by-1000-or-more">Challenge 9 - Increase your balance by $1,000 or more<a class="headerlink" href="#challenge-9-increase-your-balance-by-1000-or-more" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>After solving the <a href="./#challenge-8---get-an-item-for-free">crAPI#Challenge 8 - Get an item for free</a> challenge, be creative and find a way to get refunded for an item you never returned, but this time try to get a bigger refund.</p>
+</blockquote>
+<p>To do this we will just need to increase the quantity of items to &gt; 100 and then change the status from "delivered"/"pending return" to returned, just like how it was done in <a href="#challenge-8---get-an-item-for-free">#Challenge 8 - Get an item for free</a>.</p>
+<p>Another way to do this would be to continuously alter the "status" variable from "delivered"/"pending return" to "returned" This will be demonstrated in apimap's sample template!</p>
+<h2 id="ssrf">SSRF<a class="headerlink" href="#ssrf" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-11-make-crapi-send-an-http-call-to-wwwgooglecom-and-return-the-http-response">Challenge 11 - Make crAPI send an HTTP call to "www[.]google[.]com" and return the HTTP response.<a class="headerlink" href="#challenge-11-make-crapi-send-an-http-call-to-wwwgooglecom-and-return-the-http-response" title="Permanent link">&para;</a></h3>
+<p>There is something peculiar about the endpoint <code>/workshop/api/merchant/contact_mechanic</code> .<br />
+<img alt="Pasted image 20230703210026.png" src="../Media/Pasted%20image%2020230703210026.png" /></p>
+<p>In the highlighted portion we noticed that the request JSON contains fields <code>mechanic_api</code>,  <code>repeat_request_if_failed</code> and <code>number_of_repeats</code>. They seem to be configurations for sending request.</p>
+<p><img alt="Pasted image 20230703210351.png" src="../Media/Pasted%20image%2020230703210351.png" />
+The data within the response <code>response_from_mechanic_api</code> is not helping too! Seems like this is an API that calls another API!</p>
+<p>We attempted to repeat this request but changing the <code>mechanic_api</code> to <code>postman-echo[.]com</code>.</p>
+<p><img alt="Pasted image 20230703212710.png" src="../Media/Pasted%20image%2020230703212710.png" /></p>
+<p>Request seem to be successful, and it seems like <code>response_from_mechanic_api</code> returns the response of the website(postman-echo)! Additionally, we seem to be able to use arbitrary information.</p>
+<p><img alt="Pasted image 20230703212742.png" src="../Media/Pasted%20image%2020230703212742.png" /></p>
+<p>We tested the other request methods of postman-echo and it seems like only <code>GET</code> request is valid.</p>
+<p><img alt="Pasted image 20230703211812.png" src="../Media/Pasted%20image%2020230703211812.png" /></p>
+<p>The API makes a <code>GET</code> request and returns the response from the GET request. Therefore when we change the <code>mechanic_api</code> to <code>google.com</code>, we will get back the response of google.com!
+<img alt="Pasted image 20230703212025.png" src="../Media/Pasted%20image%2020230703212025.png" />
+<img alt="Pasted image 20230703212051.png" src="../Media/Pasted%20image%2020230703212051.png" /></p>
+<h2 id="injection">Injection<a class="headerlink" href="#injection" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-12-find-a-way-to-get-free-coupons-without-knowing-the-coupon-code-nosql">Challenge 12 - Find a way to get free coupons without knowing the coupon code. (NoSQL)<a class="headerlink" href="#challenge-12-find-a-way-to-get-free-coupons-without-knowing-the-coupon-code-nosql" title="Permanent link">&para;</a></h3>
+<p><img alt="Pasted image 20230709150602.png" src="../Media/Pasted%20image%2020230709150602.png" />
+<img alt="Pasted image 20230709150625.png" src="../Media/Pasted%20image%2020230709150625.png" /></p>
+<p>We looked at the coupon validation API and used a <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/Intruder/NoSQL.txt">noSQL payloads</a> to fuzz. We get mostly 422 Erros, where it is finding fault with our inputs,  indicating further that the database used is likely noSQL as it is processing the JSON.</p>
+<p><img alt="Pasted image 20230709151221.png" src="../Media/Pasted%20image%2020230709151221.png" />
+When <code>{"$gt":""}</code> payload was used, for some reason a 200 OK response was the coupon code was displayed!
+<img alt="Pasted image 20230709151417.png" src="../Media/Pasted%20image%2020230709151417.png" /></p>
+<h2 id="challenges-not-attempted">Challenges Not Attempted<a class="headerlink" href="#challenges-not-attempted" title="Permanent link">&para;</a></h2>
+<h3 id="excessive-data-exposure-challenge-5-find-an-api-endpoint-that-leaks-an-internal-property-of-a-video">(Excessive Data Exposure) Challenge 5 - Find an API endpoint that leaks an internal property of a video<a class="headerlink" href="#excessive-data-exposure-challenge-5-find-an-api-endpoint-that-leaks-an-internal-property-of-a-video" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>In this challenge, you need to find an internal property of the video resource that shouldn’t be exposed to the user. This property name and value can help you to exploit other vulnerabilities.</p>
+</blockquote>
+<h3 id="bfla-challenge-7-delete-a-video-of-another-user">(BFLA) Challenge 7 - Delete a video of another user<a class="headerlink" href="#bfla-challenge-7-delete-a-video-of-another-user" title="Permanent link">&para;</a></h3>
+<h3 id="mass-assignment-challenge-10-update-internal-video-properties">(Mass Assignment) Challenge 10 - Update internal video properties<a class="headerlink" href="#mass-assignment-challenge-10-update-internal-video-properties" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>After solving the <a href="#challenge-5---find-an-api-endpoint-that-leaks-an-internal-property-of-a-video">#Challenge 5 - Find an API endpoint that leaks an internal property of a video</a> challenge, try to find an endpoint that would allow you to change the internal property of the video. Changing the value can help you to exploit another vulnerability.</p>
+</blockquote>
+<h3 id="injection-challenge-13-find-a-way-to-redeem-a-coupon-that-you-have-already-claimed-by-modifying-the-database-sql">(Injection) Challenge 13 - Find a way to redeem a coupon that you have already claimed by modifying the database (SQL)<a class="headerlink" href="#injection-challenge-13-find-a-way-to-redeem-a-coupon-that-you-have-already-claimed-by-modifying-the-database-sql" title="Permanent link">&para;</a></h3>
+<h3 id="broken-authentication-challenge-15-find-a-way-to-forge-valid-jwt-tokens">(Broken Authentication) Challenge 15 - Find a way to forge valid JWT Tokens<a class="headerlink" href="#broken-authentication-challenge-15-find-a-way-to-forge-valid-jwt-tokens" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

